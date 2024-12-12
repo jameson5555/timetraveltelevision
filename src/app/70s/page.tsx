@@ -4,7 +4,7 @@ export default function Home() {
     return (
         <div className={styles.page}>
             <main className={styles.main}>
-                home page
+                70s page
             </main>
         </div>
     );

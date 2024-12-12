@@ -1,0 +1,58 @@
+.menu {
+    text-align: center;
+    border-top: 1px solid $brown;
+    & ul {
+        display: flex;
+        justify-content: center;
+        & li {
+            display: inline-block;
+            position: relative;
+            &::before {
+                content: '';
+                border-left: 1px solid $brown;
+                @include position(absolute, 0px null 8vmin 47%);
+                margin-left: -1px;
+            }
+
+            &:after {
+                content: '';
+                @include size(5px);
+                border-radius: 50%;
+                @include position(absolute, 0px null null 47%);
+                margin: -3px 0 0 -3px;
+                background: $brown;
+            }
+
+            >a {
+                display: block;
+                color: $brown;
+                text-shadow: 0.25vmin 0.25vmin 0 rgba($tan, 0.6), 0.5vmin 0.5vmin 0 rgba($orange-lt, 0.6), 1vmin 1vmin 0 rgba($tan, 0.6);
+                z-index: 1;
+                position: relative;
+                padding: 2vmin;
+                @include transition(transform, 0.3s ease-out);
+                @include transform(scale(0.6));
+            }
+
+            &:hover {
+                &:before {
+                    bottom: 9vmin;
+                }
+
+                >a {
+                    @include transform(scale(0.8));
+                }
+            }
+
+            &.active {
+                &::before {
+                    bottom: 10vmin;
+                }
+
+                >a {
+                    @include transform(scale(1));
+                }
+            }
+        }
+    }
+}
