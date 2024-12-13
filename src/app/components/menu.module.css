@@ -1,6 +1,6 @@
 .menu {
     text-align: center;
-    border-top: 1px solid $brown;
+    border-top: 1px solid var(--brown);
     & ul {
         display: flex;
         justify-content: center;
@@ -9,29 +9,35 @@
             position: relative;
             &::before {
                 content: '';
-                border-left: 1px solid $brown;
-                @include position(absolute, 0px null 8vmin 47%);
+                border-left: 1px solid var(--brown);
+                position: absolute;
+                top: 0;
+                bottom: 8vmin;
+                left: 47%;
                 margin-left: -1px;
             }
 
             &:after {
                 content: '';
-                @include size(5px);
+                width: 5px;
+                height: 5px;
                 border-radius: 50%;
-                @include position(absolute, 0px null null 47%);
+                position: absolute;
+                top: 0;
+                left: 47%;
                 margin: -3px 0 0 -3px;
-                background: $brown;
+                background: var(--brown);
             }
 
             >a {
                 display: block;
-                color: $brown;
-                text-shadow: 0.25vmin 0.25vmin 0 rgba($tan, 0.6), 0.5vmin 0.5vmin 0 rgba($orange-lt, 0.6), 1vmin 1vmin 0 rgba($tan, 0.6);
+                color: var(--brown);
+                text-shadow: 0.25vmin 0.25vmin 0 rgba(var(--tan), 0.6), 0.5vmin 0.5vmin 0 rgba(var(--orange-lt), 0.6), 1vmin 1vmin 0 rgba(var(--tan), 0.6);
                 z-index: 1;
                 position: relative;
                 padding: 2vmin;
-                @include transition(transform, 0.3s ease-out);
-                @include transform(scale(0.6));
+                transition: all 0.3s ease-out;
+                transform: scale(0.6);
             }
 
             &:hover {
@@ -40,7 +46,7 @@
                 }
 
                 >a {
-                    @include transform(scale(0.8));
+                    transform: scale(0.8);
                 }
             }
 
@@ -50,7 +56,7 @@
                 }
 
                 >a {
-                    @include transform(scale(1));
+                    transform: scale(1);
                 }
             }
         }
