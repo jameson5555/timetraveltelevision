@@ -1,11 +1,9 @@
-import styles from "@/app/page.module.css";
+import Tv from '@/app/components/tv';
 
 export default function Home() {
     return (
-        <div className={styles.page}>
-            <main className={styles.main}>
-                70s page
-            </main>
-        </div>
+        <main>
+            <Tv decade="70s" />
+        </main>
     );
 }

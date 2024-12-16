@@ -1,6 +1,6 @@
 .menu {
     text-align: center;
-    border-top: 1px solid var(--brown);
+    border-top: 1px solid var(--link-color);
     & ul {
         display: flex;
         justify-content: center;
@@ -9,7 +9,7 @@
             position: relative;
             &::before {
                 content: '';
-                border-left: 1px solid var(--brown);
+                border-left: 1px solid var(--link-color);
                 position: absolute;
                 top: 0;
                 bottom: 8vmin;
@@ -26,12 +26,12 @@
                 top: 0;
                 left: 47%;
                 margin: -3px 0 0 -3px;
-                background: var(--brown);
+                background: var(--link-color);
             }
 
             >a {
                 display: block;
-                color: var(--brown);
+                color: var(--link-color);
                 text-shadow: 0.25vmin 0.25vmin 0 rgba(var(--tan), 0.6), 0.5vmin 0.5vmin 0 rgba(var(--orange-lt), 0.6), 1vmin 1vmin 0 rgba(var(--tan), 0.6);
                 z-index: 1;
                 position: relative;
@@ -51,6 +51,7 @@
             }
 
             &.active {
+                color: pink;
                 &::before {
                     bottom: 10vmin;
                 }

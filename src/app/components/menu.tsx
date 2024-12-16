@@ -8,11 +8,18 @@ import styles from '@/app/components/menu.module.css';
 const decades = ['60s', '70s', '80s', '90s'];
 
 export default function Menu() {
+    const pathname = usePathname();
+    console.log('pathname', pathname);
     return (
         <nav className={styles.menu}>
-            <ul className={styles.menuList}>
+            <ul>
                 {decades.map((decade) => (
-                    <li key={decade}>
+                    <li
+                        key={decade}
+                        className={clsx({
+                            [styles.active]: pathname === '/' + decade,
+                        })}
+                    >
                         <Link href={`/${decade}`}>{decade}</Link>
                     </li>
                 ))}

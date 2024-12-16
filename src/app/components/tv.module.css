@@ -1,0 +1,392 @@
+:root {
+    --transition: color 0.3s ease-out, background 0.3s ease-out, border-radius 0.3s ease-out;
+    --wood: #966F33;
+    --gold: gold;
+}
+
+.tv {
+	width: 88vmin;
+	margin: 0 auto;
+	position: relative;
+	z-index: 2;
+    .outer1,
+    .outer2,
+    .outer3 {
+        transition: var(--transition);
+    }
+    .screen {
+        overflow: hidden;
+    }
+	.dial {
+		.control {
+			cursor: pointer;
+		}
+		.svg-icon>svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+			margin: -25% 0 0 -25%;
+			width: 50%;
+			height: 50%;
+		}
+	}
+	.decade-60s {
+        background: orange;
+        .outer3 {
+            background: var(--wood);
+            border: 1px solid black;
+            padding: 0.75vmin;
+            border-radius: 1vmin;
+            position: relative;
+        }
+        .outer2 {
+            background: var(--wood);
+            padding: 3vmin 15vmin 3vmin 3vmin;
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 2.75vmin;
+                right: 0.5vmin;
+                bottom: 2.75vmin;
+                border: 0.01vmin solid black;
+                width: 11vmin;
+                color: silver;
+                font-size: 3.5vmin;
+                line-height: 6vmin;
+                padding-top: 0.3vmin;
+                text-align: center;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.0));
+                background-size: 100% 1vmin;
+            }
+        }
+        .outer1 {
+            background: silver;
+            padding: 1.5vmin;
+        }
+        .screen {
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 100%;
+                width: 100%;
+                border-radius: 14vmin;
+                box-shadow: inset 0 0 0 1vmin gray, 0 0 0 10vmin gray;
+                pointer-events: none;
+            }
+        }
+        .dial {
+            position: absolute;
+            top: 1vmin;
+            right: 1.3vmin;
+            width: 8vmin;
+            height: 17vmin;
+            z-index: 2;
+            .control {
+                position: absolute;
+                right: 2vmin;
+                bottom: 6vmin;
+                border-radius: 50%;
+                background: var(--wood);
+                border: 1px solid black;
+                cursor: pointer;
+                width: 6vmin;
+                height: 6vmin;
+                svg {
+                    fill: black;
+                }
+            }
+            .control2 {
+                width: 6vmin;
+                height: 6vmin;
+                right: 2vmin;
+                bottom: -2vmin;
+            }
+        }
+    }
+	.decade-70s {
+        .outer3 {
+            background: var(--wood);
+            border: 1px solid black;
+            padding: 0.75vmin;
+            border-radius: 1vmin;
+            position: relative;
+        }
+        .outer2 {
+            background: var(--wood);
+            padding: 1vmin 12vmin 1vmin 1vmin;
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 1.75vmin;
+                right: 0.5vmin;
+                bottom: 1.75vmin;
+                border: 0.01vmin solid black;
+                width: 8vmin;
+                color: silver;
+                font-size: 3.5vmin;
+                line-height: 6vmin;
+                padding-top: 0.3vmin;
+                text-align: center;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.0));
+                background-size: 100% 1vmin;
+            }
+        }
+        .outer1 {
+            background: black;
+            padding: 1.5vmin;
+            border: 0.5vmin solid rgba(0,0,0,0.3);
+        }
+        .screen {
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 100%;
+                width: 100%;
+                border-radius: 4vmin;
+                box-shadow: inset 0 0 0 0vmin black, 0 0 0 10vmin black;
+                pointer-events: none;
+            }
+        }
+        .dial {
+            position: absolute;
+            right: 1.3vmin;
+            bottom: 1vmin;
+            width: 8vmin;
+            height: 17vmin;
+            z-index: 2;
+            .control {
+                position: absolute;
+                right: 1vmin;
+                bottom: 3vmin;
+                border-radius: 50%;
+                background: var(--wood);
+                border: 1px solid black;
+                cursor: pointer;
+                width: 5vmin;
+                height: 5vmin;
+                cursor: pointer;
+            }
+            .control2 {
+                bottom: 10vmin;
+            }
+        }
+    }
+	.decade-80s {
+        margin: 0 auto;
+        width: 80%;
+        .outer3 {
+            background: white;
+            border: 1px solid silver;
+            padding: 0.75vmin;
+            border-radius: 5vmin;
+            position: relative;
+        }
+        .outer2 {
+            background: gray;
+            padding: 1vmin 1vmin 10vmin;
+            border-radius: 4vmin;
+            position: relative;
+            &:after {
+                content: 'VHS';
+                border: 0.01vmin solid silver;
+                height: 6vmin;
+                color: silver;
+                font-size: 3.5vmin;
+                line-height: 6vmin;
+                padding-top: 0.3vmin;
+                text-align: center;
+            }
+        }
+        .outer1 {
+            background: gray;
+            padding: 1.5vmin;
+            border-radius: 4vmin;
+            border: 0.5vmin solid rgba(0,0,0,0.3);
+        }
+        .screen {
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 100%;
+                width: 100%;
+                border-radius: 4vmin;
+                box-shadow: inset 0 0 0 0vmin gray, 0 0 0 10vmin gray;
+                pointer-events: none;
+            }
+        }
+        .dial {
+            .control {
+                position: absolute;
+                bottom: 2vmin;
+                height: 5vmin;
+                width: 5vmin;
+                svg {
+                    fill: silver;
+                    height: 80%;
+                    width: 80%;
+                    top: 0;
+                    left: 0;
+                    margin: 0 auto;
+                }
+            }
+            .outer1 {
+                left: 13vmin;
+            }
+            .outer2 {
+                right: 12vmin;
+            }
+        }
+    }
+	.decade-90s {
+        .outer3 {
+            background: black;
+            border: 1px solid silver;
+            padding: 0.75vmin;
+            border-radius: 2vmin;
+            position: relative;
+        }
+        .outer2 {
+            background: gray;
+            padding: 1vmin 1vmin 8vmin;
+            border-radius: 1vmin;
+            position: relative;
+            &:after {
+                content: 'DVD';
+                position: absolute;
+                right: 28%;
+                bottom: 1.5vmin;
+                right: 28%;
+                border: 0.01vmin solid black;
+                height: 4vmin;
+                color: black;
+                font-size: 3.5vmin;
+                line-height: 4vmin;
+                padding-top: 0.3vmin;
+                text-align: center;
+            }
+        }
+        .outer1 {
+            background: black;
+            padding: 1.5vmin;
+            border-radius: 1vmin;
+        }
+        .dial {
+            .control {
+                position: absolute;
+                bottom: 0.5vmin;
+                height: 5vmin;
+                width: 5vmin;
+                svg {
+                    fill: black;
+                    height: 60%;
+                    width: 60%;
+                    top: 0;
+                    left: 0;
+                    margin: 0 auto;
+                }
+            }
+            .control1 {
+                left: 18vmin;
+            }
+            .control2 {
+                right: 16vmin;
+            }
+        }
+    }
+}
+.embed-responsive {
+	position: relative;
+	display: block;
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+	&.embed-responsive-16by9 {
+		padding-bottom: 56.25%;
+	}
+}
+.embed-responsive-item {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+/* full screen mode */
+.zoomed {
+	.tv-container {
+        position: absolute;
+        top: -99999em;
+        left: -99999em;
+		.dial {
+			.control1 {
+				display: none;
+			}
+			.control2 {
+                position: fixed;
+                right: 2vmin;
+                bottom: 1vmin;
+				z-index: 100;
+				color: var(--tan);
+                width: 6vmin;
+                height: 6vmin;
+				opacity: 0.5;
+				svg {
+					fill: var(--tan) !important;
+					width: 100% !important;
+					height: 100% !important;
+				}
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.embed-responsive-item {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+		height: 100vh;
+		width: 100vw;
+	}
+	.share-container {
+		.share {
+			&:not(.open) {
+				background: transparent;
+			}
+			&.open {
+				opacity: 1;
+				button {
+					opacity: 1;
+				}
+			}
+			button {
+				opacity: 0.5;
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

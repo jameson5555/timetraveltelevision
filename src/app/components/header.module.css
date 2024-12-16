@@ -9,7 +9,7 @@
         position: relative;
 
         a {
-            color: $brown;
+            color: var(--blue-violet);
         }
     }
 }
