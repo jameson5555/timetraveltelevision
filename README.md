@@ -5,13 +5,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+nvm use 18.18.0; npm run dev
+mysql -u root -p # launch mysql in terminal (for importing .sql file from prod db)
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
