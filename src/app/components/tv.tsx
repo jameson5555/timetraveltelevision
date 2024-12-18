@@ -5,9 +5,16 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 
 export default function Tv({
     decade,
+    videos,
 }: {
     decade: string;
+    videos: Array<any>;
 }) {
+    
+    //console.log('videos: ', videos);
+
+    videos.sort(() => Math.random() - 0.5);
+
     const onPlayerReady: YouTubeProps['onReady'] = (event) => {
         // access to player in all event handlers via event.target
         //event.target.pauseVideo();
@@ -28,7 +35,7 @@ export default function Tv({
                     <div className={styles.outer2}>
                         <div className={styles.outer1}>
                             <div className={styles.screen}>
-                                <YouTube videoId="2g811Eo7K8U" opts={opts} onReady={onPlayerReady} />
+                                <YouTube videoId={videos[0].id} opts={opts} onReady={onPlayerReady} />
                             </div>
                         </div>
                         <div className={styles.dial}>
