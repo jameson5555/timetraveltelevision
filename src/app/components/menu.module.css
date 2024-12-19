@@ -15,6 +15,7 @@
                 bottom: 8vmin;
                 left: 47%;
                 margin-left: -1px;
+                height: 15px;
             }
 
             &:after {

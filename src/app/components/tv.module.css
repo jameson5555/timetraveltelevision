@@ -4,6 +4,29 @@
     --gold: gold;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .tv {
 	width: 88vmin;
 	margin: 0 auto;
@@ -16,6 +39,20 @@
     }
     .screen {
         overflow: hidden;
+        &.showStatic {
+            .static {
+                animation: fadeIn 1s ease-in;
+            }
+        }
+        .static {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            animation: fadeOut 6s ease-out;
+            animation-fill-mode: forwards;
+        }
     }
 	.dial {
 		.control {
@@ -31,7 +68,6 @@
 		}
 	}
 	.decade-60s {
-        background: orange;
         .outer3 {
             background: var(--wood);
             border: 1px solid black;
@@ -100,12 +136,6 @@
                 svg {
                     fill: black;
                 }
-            }
-            .control2 {
-                width: 6vmin;
-                height: 6vmin;
-                right: 2vmin;
-                bottom: -2vmin;
             }
         }
     }
@@ -178,9 +208,6 @@
                 height: 5vmin;
                 cursor: pointer;
             }
-            .control2 {
-                bottom: 10vmin;
-            }
         }
     }
 	.decade-80s {
@@ -237,14 +264,8 @@
                 bottom: 2vmin;
                 height: 5vmin;
                 width: 5vmin;
-                svg {
-                    fill: silver;
-                    height: 80%;
-                    width: 80%;
-                    top: 0;
-                    left: 0;
-                    margin: 0 auto;
-                }
+                border: 1px solid black;
+                border-radius: 50%;
             }
             .outer1 {
                 left: 13vmin;
@@ -293,20 +314,9 @@
                 bottom: 0.5vmin;
                 height: 5vmin;
                 width: 5vmin;
-                svg {
-                    fill: black;
-                    height: 60%;
-                    width: 60%;
-                    top: 0;
-                    left: 0;
-                    margin: 0 auto;
-                }
-            }
-            .control1 {
+                border: 1px solid black;
+                border-radius: 50%;
                 left: 18vmin;
-            }
-            .control2 {
-                right: 16vmin;
             }
         }
     }
