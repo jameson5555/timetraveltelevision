@@ -10,14 +10,25 @@ export default function Tv({
     decade: string;
     videos: Array<any>;
 }) {
-    
-    //console.log('videos: ', videos);
-
     videos.sort(() => Math.random() - 0.5);
 
+    let currentVideoIndex = 0;
+
     const onPlayerReady: YouTubeProps['onReady'] = (event) => {
-        // access to player in all event handlers via event.target
-        //event.target.pauseVideo();
+        console.log('isPlayable', event.target.playerInfo.videoData.isPlayable);
+        if (event?.target?.playerInfo?.videoData?.isPlayable) {
+            event.target.playVideo();
+        }
+    }
+
+    const onPlayerError: YouTubeProps['onError'] = (event) => {
+        console.log('onPlayerError', event);
+        currentVideoIndex++;
+        if (currentVideoIndex >= videos.length) {
+            currentVideoIndex = 0;
+        }
+        console.log('currentVideoIndex', currentVideoIndex);
+        event.target.loadVideoById(videos[currentVideoIndex].id);
     }
 
     const opts: YouTubeProps['opts'] = {
@@ -25,7 +36,7 @@ export default function Tv({
         width: '640',
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
-            autoplay: 1,
+            //autoplay: 1,
         },
     };
     return (
@@ -35,7 +46,12 @@ export default function Tv({
                     <div className={styles.outer2}>
                         <div className={styles.outer1}>
                             <div className={styles.screen}>
-                                <YouTube videoId={videos[0].id} opts={opts} onReady={onPlayerReady} />
+                                <YouTube
+                                    videoId={videos[currentVideoIndex].id}
+                                    opts={opts}
+                                    onReady={onPlayerReady}
+                                    onError={onPlayerError}
+                                />
                             </div>
                         </div>
                         <div className={styles.dial}>
