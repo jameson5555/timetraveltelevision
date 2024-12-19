@@ -3,6 +3,8 @@
 import styles from "@/app/components/tv.module.css";
 import YouTube, { YouTubeProps } from 'react-youtube';
 
+let player: any;
+
 export default function Tv({
     decade,
     videos,
@@ -14,22 +16,25 @@ export default function Tv({
 
     let currentVideoIndex = 0;
 
-    const onPlayerReady: YouTubeProps['onReady'] = (event) => {
-        console.log('isPlayable', event.target.playerInfo.videoData.isPlayable);
-        if (event?.target?.playerInfo?.videoData?.isPlayable) {
-            event.target.playVideo();
-        }
-    }
-
-    const onPlayerError: YouTubeProps['onError'] = (event) => {
-        console.log('onPlayerError', event);
+    const skipToNextVideo = () => {
         currentVideoIndex++;
         if (currentVideoIndex >= videos.length) {
             currentVideoIndex = 0;
         }
-        console.log('currentVideoIndex', currentVideoIndex);
-        event.target.loadVideoById(videos[currentVideoIndex].id);
+        console.log('skip to video ', currentVideoIndex);
+        player.loadVideoById(videos[currentVideoIndex].id);
     }
+
+    const onPlayerReady: YouTubeProps['onReady'] = (event) => {
+        player = event.target;
+        console.log('isPlayable', player.playerInfo.videoData.isPlayable);
+        if (player?.playerInfo?.videoData?.isPlayable) {
+            player.playVideo();
+        }
+    }
+
+    const onPlayerError: YouTubeProps['onError'] = () => skipToNextVideo();
+    const onPlayerEnd: YouTubeProps['onEnd'] = () => skipToNextVideo();
 
     const opts: YouTubeProps['opts'] = {
         height: '390',
@@ -51,11 +56,12 @@ export default function Tv({
                                     opts={opts}
                                     onReady={onPlayerReady}
                                     onError={onPlayerError}
+                                    onEnd={onPlayerEnd}
                                 />
                             </div>
                         </div>
-                        <div className={styles.dial}>
-                            <div className={`${styles.control} ${styles.control1}`}>></div>
+                        <div className={styles.dial} onClick={() => skipToNextVideo()}>
+                            <div className={`${styles.control} ${styles.control1}`}></div>
                             <div className={`${styles.control} ${styles.control2}`}></div>
                         </div>
                     </div>

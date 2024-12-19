@@ -9,7 +9,7 @@ const decades = ['60s', '70s', '80s', '90s'];
 
 export default function Menu() {
     const pathname = usePathname();
-    console.log('pathname', pathname);
+
     return (
         <nav className={styles.menu}>
             <ul>
