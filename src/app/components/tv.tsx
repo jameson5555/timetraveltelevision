@@ -7,12 +7,28 @@ import clsx from 'clsx';
 import { useState } from 'react'
 
 let player: any;
+const aspectRatioClasses = {
+    '50s': 'ratio ratio-4x3',
+    '60s': 'ratio ratio-4x3',
+    '70s': 'ratio ratio-4x3',
+    '80s': 'ratio ratio-4x3',
+    '90s': 'ratio ratio-4x3',
+    '00s': 'ratio ratio-16x9',
+}
+const tvSetSizes = {
+    '50s': { width: 2000, height: 2000 },
+    '60s': { width: 1446, height: 1920 },
+    '70s': { width: 2000, height: 2000 },
+    '80s': { width: 1920, height: 1446 },
+    '90s': { width: 1920, height: 1446 },
+    '00s': { width: 1920, height: 1080 },
+}
 
 export default function Tv({
     decade,
     videos,
 }: {
-    decade: string;
+    decade: '50s' | '60s' | '70s' | '80s' | '90s' | '00s';
     videos: Array<any>;
 }) {
     videos.sort(() => Math.random() - 0.5);
@@ -36,7 +52,6 @@ export default function Tv({
         setIsStatic(true);
         console.log('isPlayable', player.playerInfo.videoData.isPlayable);
         if (player?.playerInfo?.videoData?.isPlayable) {
-            console.log('onPlayerReady set static to false');
             setIsStatic(false);
             player.playVideo();
             player.mute(); // for testing
@@ -44,16 +59,18 @@ export default function Tv({
     }
 
     const onPlayerPlay: YouTubeProps['onPlay'] = () => {
-        console.log('onPlayerPlay set static to false');
         setIsStatic(false);
     }
 
     const onPlayerError: YouTubeProps['onError'] = () => skipToNextVideo();
     const onPlayerEnd: YouTubeProps['onEnd'] = () => skipToNextVideo();
 
+    const setFullScreen = () => {
+        if (player === undefined) return;
+        player.getIframe().requestFullscreen(); // todo: browser compatibility, animate, click to exit fullscreen
+    }
+
     const opts: YouTubeProps['opts'] = {
-        height: '390',
-        width: '640',
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
             autoplay: 1,
@@ -66,36 +83,38 @@ export default function Tv({
     return (
         <section className={styles.tv}>
             <div className={styles["decade-" + decade]}>
-                <div className={styles.outer3}>
-                    <div className={styles.outer2}>
-                        <div className={styles.outer1}>
-                            <div className={clsx({
-                                    [styles.screen]: true,
-                                    [styles.showStatic]: isStatic === true,
-                                })}>
-                                <YouTube
-                                    videoId={videos[currentVideoIndex]?.id}
-                                    opts={opts}
-                                    onReady={onPlayerReady}
-                                    onPlay={onPlayerPlay}
-                                    onError={onPlayerError}
-                                    onEnd={onPlayerEnd}
-                                />
-                                <Image
-                                    src="/static.webp"
-                                    width={640}
-                                    height={390}
-                                    className={styles.static}
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                        <div className={styles.dial} onClick={() => skipToNextVideo()}>
-                            <div className={`${styles.control} ${styles.control1}`}></div>
-                            <div className={`${styles.control} ${styles.control2}`}></div>
-                        </div>
-                    </div>
+                <div
+                    className={clsx({
+                        [styles.screen]: true,
+                        [styles.showStatic]: isStatic === true,
+                        [aspectRatioClasses[decade]]: true,
+                    })}
+                    onClick={() => setFullScreen()}
+                >
+                    <YouTube
+                        videoId={videos[currentVideoIndex]?.id}
+                        opts={opts}
+                        onReady={onPlayerReady}
+                        onPlay={onPlayerPlay}
+                        onError={onPlayerError}
+                        onEnd={onPlayerEnd}
+                    />
+                    <Image
+                        src="/static.webp"
+                        width={499}
+                        height={290}
+                        className={styles.static}
+                        alt=""
+                    />
                 </div>
+                <Image
+                    src={`/tvs/${decade}.png`}
+                    width={tvSetSizes[decade].width}
+                    height={tvSetSizes[decade].height}
+                    className={styles.set}
+                    alt=""
+                />
+                <div className={styles.dial} onClick={() => skipToNextVideo()}></div>
             </div>
         </section>
     );

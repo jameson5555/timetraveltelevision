@@ -5,6 +5,8 @@ import Menu from '@/app/components/menu';
 import Footer from '@/app/components/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/app/globals.css";
+// import { FaMaximize } from "react-icons/fa6"; // insert icons like this
+// browse icons here: https://react-icons.github.io/react-icons/
 
 const orbitron = Orbitron({
     variable: "--font-orbitron",

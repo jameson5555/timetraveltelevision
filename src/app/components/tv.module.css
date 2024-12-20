@@ -28,17 +28,26 @@
 }
 
 .tv {
-	width: 88vmin;
-	margin: 0 auto;
-	position: relative;
-	z-index: 2;
-    .outer1,
-    .outer2,
-    .outer3 {
-        transition: var(--transition);
+    width: 88vmin;
+    margin: 0 auto;
+    position: relative;
+    .set {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        pointer-events: none;
     }
     .screen {
         overflow: hidden;
+        background: black;
+        cursor: url('data:image/svg+xml;utf8,<svg stroke="black" fill="fuchsia" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M200 32L56 32C42.7 32 32 42.7 32 56l0 144c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l40-40 79 79-79 79L73 295c-6.9-6.9-17.2-8.9-26.2-5.2S32 302.3 32 312l0 144c0 13.3 10.7 24 24 24l144 0c9.7 0 18.5-5.8 22.2-14.8s1.7-19.3-5.2-26.2l-40-40 79-79 79 79-40 40c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8l144 0c13.3 0 24-10.7 24-24l0-144c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2l-40 40-79-79 79-79 40 40c6.9 6.9 17.2 8.9 26.2 5.2s14.8-12.5 14.8-22.2l0-144c0-13.3-10.7-24-24-24L312 32c-9.7 0-18.5 5.8-22.2 14.8s-1.7 19.3 5.2 26.2l40 40-79 79-79-79 40-40c6.9-6.9 8.9-17.2 5.2-26.2S209.7 32 200 32z"></path></svg>'), auto;
+        > div {
+            pointer-events: none;
+        }
         &.showStatic {
             .static {
                 animation: fadeIn 1s ease-in;
@@ -52,351 +61,104 @@
             bottom: 0;
             animation: fadeOut 6s ease-out;
             animation-fill-mode: forwards;
+            pointer-events: none;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
     }
-	.dial {
-		.control {
-			cursor: pointer;
-		}
-		.svg-icon>svg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-			margin: -25% 0 0 -25%;
-			width: 50%;
-			height: 50%;
-		}
-	}
-	.decade-60s {
-        .outer3 {
-            background: var(--wood);
-            border: 1px solid black;
-            padding: 0.75vmin;
-            border-radius: 1vmin;
-            position: relative;
-        }
-        .outer2 {
-            background: var(--wood);
-            padding: 3vmin 15vmin 3vmin 3vmin;
-            position: relative;
-            &:after {
-                content: '';
-                position: absolute;
-                top: 2.75vmin;
-                right: 0.5vmin;
-                bottom: 2.75vmin;
-                border: 0.01vmin solid black;
-                width: 11vmin;
-                color: silver;
-                font-size: 3.5vmin;
-                line-height: 6vmin;
-                padding-top: 0.3vmin;
-                text-align: center;
-                background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.0));
-                background-size: 100% 1vmin;
-            }
-        }
-        .outer1 {
-            background: silver;
-            padding: 1.5vmin;
-        }
-        .screen {
-            position: relative;
-            &:after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                height: 100%;
-                width: 100%;
-                border-radius: 14vmin;
-                box-shadow: inset 0 0 0 1vmin gray, 0 0 0 10vmin gray;
-                pointer-events: none;
-            }
-        }
+    .dial {
+        cursor: url('data:image/svg+xml;utf8,<svg stroke="fuchsia" fill="none" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M6 17L14 12L6 7V17Z" fill="fuchsia"></path><path d="M18 7H15V12V17H18V7Z" fill="fuchsia"></path></svg>'), auto;
+    }
+    .decade-60s {
+        padding: 25vmin 18.5vmin 43vmin 19.5vmin;
+        margin-top: -13vmin;
         .dial {
             position: absolute;
-            top: 1vmin;
-            right: 1.3vmin;
-            width: 8vmin;
-            height: 17vmin;
+            top: 70vmin;
+            left: 35vmin;
+            width: 19vmin;
+            height: 10vmin;
             z-index: 2;
-            .control {
-                position: absolute;
-                right: 2vmin;
-                bottom: 6vmin;
-                border-radius: 50%;
-                background: var(--wood);
-                border: 1px solid black;
-                cursor: pointer;
-                width: 6vmin;
-                height: 6vmin;
-                svg {
-                    fill: black;
-                }
-            }
         }
     }
-	.decade-70s {
-        .outer3 {
-            background: var(--wood);
-            border: 1px solid black;
-            padding: 0.75vmin;
-            border-radius: 1vmin;
-            position: relative;
-        }
-        .outer2 {
-            background: var(--wood);
-            padding: 1vmin 12vmin 1vmin 1vmin;
-            position: relative;
-            &:after {
-                content: '';
-                position: absolute;
-                top: 1.75vmin;
-                right: 0.5vmin;
-                bottom: 1.75vmin;
-                border: 0.01vmin solid black;
-                width: 8vmin;
-                color: silver;
-                font-size: 3.5vmin;
-                line-height: 6vmin;
-                padding-top: 0.3vmin;
-                text-align: center;
-                background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.0));
-                background-size: 100% 1vmin;
-            }
-        }
-        .outer1 {
-            background: black;
-            padding: 1.5vmin;
-            border: 0.5vmin solid rgba(0,0,0,0.3);
-        }
-        .screen {
-            position: relative;
-            &:after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                height: 100%;
-                width: 100%;
-                border-radius: 4vmin;
-                box-shadow: inset 0 0 0 0vmin black, 0 0 0 10vmin black;
-                pointer-events: none;
-            }
-        }
+    .decade-70s {
+        padding: 18vmin 23.3vmin 30vmin 16vmin;
+        margin-top: -4vmin;
         .dial {
             position: absolute;
-            right: 1.3vmin;
-            bottom: 1vmin;
-            width: 8vmin;
-            height: 17vmin;
+            right: 11vmin;
+            top: 16.5vmin;
+            width: 9vmin;
+            height: 12.5vmin;
             z-index: 2;
-            .control {
-                position: absolute;
-                right: 1vmin;
-                bottom: 3vmin;
-                border-radius: 50%;
-                background: var(--wood);
-                border: 1px solid black;
-                cursor: pointer;
-                width: 5vmin;
-                height: 5vmin;
-                cursor: pointer;
-            }
         }
     }
-	.decade-80s {
-        margin: 0 auto;
-        width: 80%;
-        .outer3 {
-            background: white;
-            border: 1px solid silver;
-            padding: 0.75vmin;
-            border-radius: 5vmin;
-            position: relative;
-        }
-        .outer2 {
-            background: gray;
-            padding: 1vmin 1vmin 10vmin;
-            border-radius: 4vmin;
-            position: relative;
-            &:after {
-                content: 'VHS';
-                border: 0.01vmin solid silver;
-                height: 6vmin;
-                color: silver;
-                font-size: 3.5vmin;
-                line-height: 6vmin;
-                padding-top: 0.3vmin;
-                text-align: center;
-            }
-        }
-        .outer1 {
-            background: gray;
-            padding: 1.5vmin;
-            border-radius: 4vmin;
-            border: 0.5vmin solid rgba(0,0,0,0.3);
-        }
-        .screen {
-            position: relative;
-            &:after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                height: 100%;
-                width: 100%;
-                border-radius: 4vmin;
-                box-shadow: inset 0 0 0 0vmin gray, 0 0 0 10vmin gray;
-                pointer-events: none;
-            }
-        }
+    .decade-80s {
+        padding: 18vmin 23.3vmin 30vmin 16vmin;
+        margin-top: -4vmin;
         .dial {
-            .control {
-                position: absolute;
-                bottom: 2vmin;
-                height: 5vmin;
-                width: 5vmin;
-                border: 1px solid black;
-                border-radius: 50%;
-            }
-            .outer1 {
-                left: 13vmin;
-            }
-            .outer2 {
-                right: 12vmin;
-            }
+            position: absolute;
+            right: 11vmin;
+            top: 16.5vmin;
+            width: 9vmin;
+            height: 12.5vmin;
+            z-index: 2;
         }
     }
-	.decade-90s {
-        .outer3 {
-            background: black;
-            border: 1px solid silver;
-            padding: 0.75vmin;
-            border-radius: 2vmin;
-            position: relative;
-        }
-        .outer2 {
-            background: gray;
-            padding: 1vmin 1vmin 8vmin;
-            border-radius: 1vmin;
-            position: relative;
-            &:after {
-                content: 'DVD';
-                position: absolute;
-                right: 28%;
-                bottom: 1.5vmin;
-                right: 28%;
-                border: 0.01vmin solid black;
-                height: 4vmin;
-                color: black;
-                font-size: 3.5vmin;
-                line-height: 4vmin;
-                padding-top: 0.3vmin;
-                text-align: center;
-            }
-        }
-        .outer1 {
-            background: black;
-            padding: 1.5vmin;
-            border-radius: 1vmin;
-        }
-        .dial {
-            .control {
-                position: absolute;
-                bottom: 0.5vmin;
-                height: 5vmin;
-                width: 5vmin;
-                border: 1px solid black;
-                border-radius: 50%;
-                left: 18vmin;
-            }
-        }
-    }
-}
-.embed-responsive {
-	position: relative;
-	display: block;
-	height: 0;
-	padding: 0;
-	overflow: hidden;
-	&.embed-responsive-16by9 {
-		padding-bottom: 56.25%;
-	}
-}
-.embed-responsive-item {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	border: 0;
 }
 
 /* full screen mode */
 .zoomed {
-	.tv-container {
+    .tv-container {
         position: absolute;
         top: -99999em;
         left: -99999em;
-		.dial {
-			.control1 {
-				display: none;
-			}
-			.control2 {
+        .dial {
+            .control1 {
+                display: none;
+            }
+            .control2 {
                 position: fixed;
                 right: 2vmin;
                 bottom: 1vmin;
-				z-index: 100;
-				color: var(--tan);
+                z-index: 100;
+                color: var(--tan);
                 width: 6vmin;
                 height: 6vmin;
-				opacity: 0.5;
-				svg {
-					fill: var(--tan) !important;
-					width: 100% !important;
-					height: 100% !important;
-				}
-				&:hover {
-					opacity: 1;
-				}
-			}
-		}
-	}
-	.embed-responsive-item {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-		height: 100vh;
-		width: 100vw;
-	}
-	.share-container {
-		.share {
-			&:not(.open) {
-				background: transparent;
-			}
-			&.open {
-				opacity: 1;
-				button {
-					opacity: 1;
-				}
-			}
-			button {
-				opacity: 0.5;
-				&:hover {
-					opacity: 1;
-				}
-			}
-		}
-	}
+                opacity: 0.5;
+                svg {
+                    fill: var(--tan) !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .share-container {
+        .share {
+            &:not(.open) {
+                background: transparent;
+            }
+            &.open {
+                opacity: 1;
+                button {
+                    opacity: 1;
+                }
+            }
+            button {
+                opacity: 0.5;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }

@@ -1,9 +1,9 @@
 .header {
     h1 {
         white-space: nowrap;
-        font-size: 6vmin;
+        font-size: clamp(24px, 4vmin, 46px);
         text-align: center;
-        padding: 4vmin 1vmin;
+        padding: 2vmin 1vmin;
         text-shadow: 0.25vmin 0.25vmin 0 var(--blue-violet), 0.5vmin 0.5vmin 0 var(--deep-pink), 1vmin 1vmin 0 var(--dark-blue);
         z-index: 1;
         position: relative;
