@@ -17,8 +17,8 @@
     --red-orange: rgb(255, 69, 0);
     --dark-orange: rgb(255, 140, 0);
 
-    --spiral1: rgb(183, 86, 40, 0.2);
-    --spiral2: rgb(215, 120, 63, 0.2);
+    --spiral1: var(--dark-blue-semi);
+    --spiral2: var(--indigo-semi);
 
     --morph-speed: 0.8s;
 
@@ -98,14 +98,15 @@ a {
     width: 200vmin;
     height: 200vmin;
 	margin: -100vmin 0 0 -100vmin;
-    animation: spin 100s linear infinite;
+    animation: spin 80s linear infinite;
     pointer-events: none;
     z-index: -1;
+    mix-blend-mode: screen;
 	.spiral {
 		border-radius: 50%;
         width: 200vmin;
         height: 200vmin;
-		box-shadow: -0vmin -20vmin 0vmin var(--dark-blue-semi), inset 0vmin 20vmin 0vmin var(--indigo-semi);
+		box-shadow: -0vmin -20vmin 0vmin var(--spiral1), inset 0vmin 20vmin 0vmin var(--spiral2);
 		position: absolute;
 	}
     .spiral1 {
@@ -144,6 +145,10 @@ a {
         top: -35%;
         transform: rotate(45deg);
     }
+}
+#starfield {
+    z-index: -1 !important;
+    mix-blend-mode: none;
 }
 
 /* @media (prefers-color-scheme: dark) {
