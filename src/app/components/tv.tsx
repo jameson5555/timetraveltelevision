@@ -28,7 +28,7 @@ export default function Tv({
     decade,
     videos,
 }: {
-    decade: '50s' | '60s' | '70s' | '80s' | '90s' | '00s';
+    decade: '50s' | '60s' | '70s' | '80s' | '90s';
     videos: Array<any>;
 }) {
     videos.sort(() => Math.random() - 0.5);
@@ -79,7 +79,7 @@ export default function Tv({
             rel: 0,
         },
     };
-
+console.log('decade', decade);
     return (
         <section className={styles.tv}>
             <div className={styles["decade-" + decade]}>
@@ -109,8 +109,8 @@ export default function Tv({
                 </div>
                 <Image
                     src={`/tvs/${decade}.png`}
-                    width={tvSetSizes[decade].width}
-                    height={tvSetSizes[decade].height}
+                    width={tvSetSizes[decade]?.width || 1920}
+                    height={tvSetSizes[decade]?.height || 1446}
                     className={styles.set}
                     alt=""
                 />

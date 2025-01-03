@@ -73,40 +73,60 @@
     }
     .dial {
         cursor: url('data:image/svg+xml;utf8,<svg stroke="fuchsia" fill="none" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M6 17L14 12L6 7V17Z" fill="fuchsia"></path><path d="M18 7H15V12V17H18V7Z" fill="fuchsia"></path></svg>'), auto;
+        /* background: rgba(900, 100, 100, 0.5); */
     }
-    .decade-60s {
-        padding: 25vmin 18.5vmin 43vmin 19.5vmin;
-        margin-top: -13vmin;
+    .decade-50s {
+        padding: 9vmin 13vmin 19vmin 12vmin;
         .dial {
             position: absolute;
-            top: 70vmin;
-            left: 35vmin;
-            width: 19vmin;
-            height: 10vmin;
+            top: 59vmin;
+            left: 29.5vmin;
+            width: 30.5vmin;
+            height: 10.5vmin;
+            z-index: 2;
+        }
+    }
+    .decade-60s {
+        padding: 9vmin 14.5vmin 27vmin 14vmin;
+        .dial {
+            position: absolute;
+            top: 62vmin;
+            left: 33vmin;
+            width: 21vmin;
+            height: 11vmin;
             z-index: 2;
         }
     }
     .decade-70s {
-        padding: 18vmin 23.3vmin 30vmin 16vmin;
-        margin-top: -4vmin;
+        padding: 7.25vmin 19vmin 10vmin 11vmin;
         .dial {
             position: absolute;
-            right: 11vmin;
-            top: 16.5vmin;
+            right: 6vmin;
+            top: 6.5vmin;
             width: 9vmin;
-            height: 12.5vmin;
+            height: 13.5vmin;
             z-index: 2;
         }
     }
     .decade-80s {
-        padding: 18vmin 23.3vmin 30vmin 16vmin;
-        margin-top: -4vmin;
+        padding: 6vmin 23vmin 15vmin 8vmin;
         .dial {
             position: absolute;
-            right: 11vmin;
-            top: 16.5vmin;
-            width: 9vmin;
-            height: 12.5vmin;
+            right: 5vmin;
+            top: 4.5vmin;
+            width: 15vmin;
+            height: 30.5vmin;
+            z-index: 2;
+        }
+    }
+    .decade-90s {
+        padding: 9vmin 9vmin 12vmin 9vmin;
+        .dial {
+            position: absolute;
+            top: 61.5vmin;
+            left: 6.5vmin;
+            width: 75vmin;
+            height: 6vmin;
             z-index: 2;
         }
     }
