@@ -1,5 +1,6 @@
 'use client';
 
+import '@/app/globals.css';
 import styles from "@/app/components/tv.module.css";
 import YouTube, { YouTubeProps } from 'react-youtube';
 import Image from 'next/image';
