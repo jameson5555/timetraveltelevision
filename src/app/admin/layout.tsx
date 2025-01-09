@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Orbitron } from "next/font/google";
+import { Niramit } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/app/globals.css";
 // import { FaMaximize } from "react-icons/fa6"; // insert icons like this
 // browse icons here: https://react-icons.github.io/react-icons/
 // todo: learn https://www.remotion.dev/
 
-const orbitron = Orbitron({
-    variable: "--font-orbitron",
+const niramit = Niramit({
+    variable: "--font-niramit",
     subsets: ["latin"],
+    weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -16,16 +17,14 @@ export const metadata: Metadata = {
     description: "Catch glimpses of the past through the television screen.",
 };
 
-export default function RootLayout({
+export default function Layout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={`${orbitron.className}`}>
-                {children}
-            </body>
-        </html>
+        <div className={`${niramit.className}`}>
+            {children}
+        </div>
     );
 }

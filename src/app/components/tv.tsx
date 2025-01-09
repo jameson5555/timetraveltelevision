@@ -80,7 +80,7 @@ export default function Tv({
             rel: 0,
         },
     };
-console.log('decade', decade);
+
     return (
         <section className={styles.tv}>
             <div className={styles["decade-" + decade]}>

@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import styles from '@/app/components/menu.module.css';
+import globalConfig from '@/app/app.config';
 
-const decades = ['50s', '60s', '70s', '80s', '90s'];
+const decades = globalConfig.decades;
 
 export default function Menu() {
     const pathname = usePathname();
