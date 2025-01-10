@@ -27,8 +27,8 @@ export default async function AdminPage() {
         fetchDecadesData(),
     ]);
     return (
-        <main>
+        <div className="p-4">
             <DecadesList decades={decades} />
-        </main>
+        </div>
     );
 }

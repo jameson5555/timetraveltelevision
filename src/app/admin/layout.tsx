@@ -23,8 +23,8 @@ export default function Layout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className={`${niramit.className}`}>
+        <main className={`${niramit.className}`}>
             {children}
-        </div>
+        </main>
     );
 }
