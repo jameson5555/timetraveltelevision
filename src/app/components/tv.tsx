@@ -43,7 +43,6 @@ export default function Tv({
         if (currentVideoIndex >= videos.length) {
             currentVideoIndex = 0;
         }
-        console.log('skip to video ', currentVideoIndex);
         player.loadVideoById(videos[currentVideoIndex].id);
         player.mute(); // for testing
     }
@@ -51,7 +50,6 @@ export default function Tv({
     const onPlayerReady: YouTubeProps['onReady'] = (event) => {
         player = event.target;
         setIsStatic(true);
-        console.log('isPlayable', player.playerInfo.videoData.isPlayable);
         if (player?.playerInfo?.videoData?.isPlayable) {
             setIsStatic(false);
             player.playVideo();
