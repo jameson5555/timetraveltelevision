@@ -23,7 +23,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" data-bs-theme="dark">
             <body className={`${orbitron.className}`}>
                 {children}
                 <Starfield

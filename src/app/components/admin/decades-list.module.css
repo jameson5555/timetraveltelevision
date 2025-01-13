@@ -1,4 +1,12 @@
 .decadeslist {
     opacity: 0.84;
     text-align: left;
+    .status {
+        text-align: center;
+        width: 80px;
+    }
+    .delete {
+        text-align: center;
+        vertical-align: middle;
+    }
 }
