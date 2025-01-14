@@ -7,9 +7,6 @@ let connectionParams = GetDBSettings();
 export async function POST(req: Request){
     const body = await req.json();
     const { decade, videoId, description } = body;
-    console.log('server decade', decade);
-    console.log('server videoId', videoId);
-    console.log('server description', description);
 
     try {
         const connection = await mysql.createConnection(connectionParams);
@@ -20,7 +17,7 @@ export async function POST(req: Request){
 
         return NextResponse.json({ success: true, results });
     } catch (err) {
-        console.log('ERROR: API - ', (err as Error).message);
+        console.error('ERROR: API - ', (err as Error).message);
         return NextResponse.json({ success: false, error: (err as Error).message });
     }
 }

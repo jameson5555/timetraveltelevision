@@ -17,7 +17,7 @@ export async function DELETE(req: Request){
 
         return NextResponse.json({ success: true, results });
     } catch (err) {
-        console.log('ERROR: API - ', (err as Error).message);
+        console.error('ERROR: API - ', (err as Error).message);
         return NextResponse.json({ success: false, error: (err as Error).message });
     }
 }

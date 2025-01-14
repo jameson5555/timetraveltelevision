@@ -16,7 +16,6 @@ export default function DecadesList({
     const router = useRouter();
 
     const handleAdd = async (event: React.MouseEvent<HTMLButtonElement>) => {
-        console.log('add video', event.target);
         const row = (event.target as HTMLElement).closest('tr');
         if (!row) {
             console.error('Row not found');
