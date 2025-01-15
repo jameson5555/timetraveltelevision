@@ -80,40 +80,42 @@ export default function Tv({
     };
 
     return (
-        <section className={styles.tv}>
-            <div className={styles["decade-" + decade]}>
-                <div
-                    className={clsx({
-                        [styles.screen]: true,
-                        [styles.showStatic]: isStatic === true,
-                        [aspectRatioClasses[decade]]: true,
-                    })}
-                    onClick={() => setFullScreen()}
-                >
-                    <YouTube
-                        videoId={videos[currentVideoIndex]?.id}
-                        opts={opts}
-                        onReady={onPlayerReady}
-                        onPlay={onPlayerPlay}
-                        onError={onPlayerError}
-                        onEnd={onPlayerEnd}
-                    />
+        <section className={styles.tvcontainer}>
+            <div className={styles.tv}>
+                <div className={styles["decade-" + decade]}>
+                    <div
+                        className={clsx({
+                            [styles.screen]: true,
+                            [styles.showStatic]: isStatic === true,
+                            [aspectRatioClasses[decade]]: true,
+                        })}
+                        onClick={() => setFullScreen()}
+                    >
+                        <YouTube
+                            videoId={videos[currentVideoIndex]?.id}
+                            opts={opts}
+                            onReady={onPlayerReady}
+                            onPlay={onPlayerPlay}
+                            onError={onPlayerError}
+                            onEnd={onPlayerEnd}
+                        />
+                        <Image
+                            src="/static.webp"
+                            width={499}
+                            height={290}
+                            className={styles.static}
+                            alt=""
+                        />
+                    </div>
                     <Image
-                        src="/static.webp"
-                        width={499}
-                        height={290}
-                        className={styles.static}
+                        src={`/tvs/${decade}.png`}
+                        width={tvSetSizes[decade]?.width || 1920}
+                        height={tvSetSizes[decade]?.height || 1446}
+                        className={styles.set}
                         alt=""
                     />
+                    <div className={styles.dial} onClick={() => skipToNextVideo()}></div>
                 </div>
-                <Image
-                    src={`/tvs/${decade}.png`}
-                    width={tvSetSizes[decade]?.width || 1920}
-                    height={tvSetSizes[decade]?.height || 1446}
-                    className={styles.set}
-                    alt=""
-                />
-                <div className={styles.dial} onClick={() => skipToNextVideo()}></div>
             </div>
         </section>
     );

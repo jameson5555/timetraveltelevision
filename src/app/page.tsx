@@ -7,6 +7,9 @@ export default function Home() {
         <main>
             <Header />
             <Menu />
+            <section className="home-container">
+                <h2 className="home-message">Choose a Decade</h2>
+            </section>
             <Footer />
         </main>
     );

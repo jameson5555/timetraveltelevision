@@ -1,10 +1,7 @@
-import type { Metadata } from "next";
+import { MetadataRoute } from 'next';
 import { Niramit } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/app/globals.css";
-// import { FaMaximize } from "react-icons/fa6"; // insert icons like this
-// browse icons here: https://react-icons.github.io/react-icons/
-// todo: learn https://www.remotion.dev/
 
 const niramit = Niramit({
     variable: "--font-niramit",
@@ -12,10 +9,14 @@ const niramit = Niramit({
     weight: ["400", "700"],
 });
 
-export const metadata: Metadata = {
-    title: "Time Travel Television",
-    description: "Catch glimpses of the past through the television screen.",
-};
+export function robots(): MetadataRoute.Robots {
+    return {
+        rules: {
+            userAgent: '*',
+            disallow: '/' // Disallow all crawlers for this page
+        }
+    };
+}
 
 export default function Layout({
     children,
