@@ -2,7 +2,7 @@ import mysql from 'mysql2/promise';
 import { GetDBSettings } from '@/shared/common';
 
 const connectionParams = GetDBSettings();
-
+console.log('connectionparams', connectionParams);
 export async function getVideosByDecade(decade: string) {
     try {
         const connection = await mysql.createConnection(connectionParams);

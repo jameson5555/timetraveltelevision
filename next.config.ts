@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
         port: '3306',
         user: 'ttt_jameson', // production user
         password: 'Tim3Trav3l!', // production password
+        host_dev: 'localhost',
         user_dev: 'root', // local user
         password_dev: 'suupD00d', // local password
         database: 'ttt_videos',
