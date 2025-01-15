@@ -7,6 +7,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import { useState } from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let player: any;
 const aspectRatioClasses = {
     '50s': 'ratio ratio-4x3',
@@ -25,6 +26,7 @@ const tvSetSizes = {
     '00s': { width: 1920, height: 1080 },
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function Tv({
     decade,
     videos,
@@ -98,6 +100,7 @@ export default function Tv({
                             onPlay={onPlayerPlay}
                             onError={onPlayerError}
                             onEnd={onPlayerEnd}
+                            className={styles.video}
                         />
                         <Image
                             src="/static.webp"

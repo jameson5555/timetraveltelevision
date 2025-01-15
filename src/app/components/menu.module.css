@@ -37,7 +37,7 @@
                 background: var(--link-color);
             }
 
-            > a {
+            > .link {
                 display: block;
                 color: var(--link-color);
                 z-index: 1;
@@ -47,17 +47,17 @@
                 transform: rotateY(360deg);
             }
             &:hover {
-                a {
+                .link {
                     transition: transform 0.5s ease-out;
                     transform: rotateY(0deg);
                 }
             }
         }
         .active {
-            a,
-            a:hover,
-            a:active,
-            a:visited {
+            .link,
+            .link:hover,
+            .link:active,
+            .link:visited {
                 transition: none;
                 transform: none;
                 color: var(--dark-orange);

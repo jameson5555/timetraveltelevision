@@ -1,7 +1,7 @@
 import mysql from 'mysql2/promise';
 import { GetDBSettings } from '@/shared/common';
 
-let connectionParams = GetDBSettings();
+const connectionParams = GetDBSettings();
 
 export async function getVideosByDecade(decade: string) {
     try {

@@ -99,6 +99,15 @@ a {
     }
 }
 
+/* because css modules won't handle targeting elements */
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .spinner {
     border: 4px solid rgba(255, 255, 255, 0.1);
     border-left-color: #fff;

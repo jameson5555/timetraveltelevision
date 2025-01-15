@@ -21,7 +21,7 @@ export default function Menu() {
                             [styles.active]: pathname === '/' + decade,
                         })}
                     >
-                        <Link href={`/${decade}`}>{decade}</Link>
+                        <Link className={styles.link} href={`/${decade}`}>{decade}</Link>
                     </li>
                 ))}
             </ul>

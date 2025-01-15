@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next';
+import type { Metadata } from "next";
 import { Niramit } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/app/globals.css";
@@ -9,14 +9,10 @@ const niramit = Niramit({
     weight: ["400", "700"],
 });
 
-export function robots(): MetadataRoute.Robots {
-    return {
-        rules: {
-            userAgent: '*',
-            disallow: '/' // Disallow all crawlers for this page
-        }
-    };
-}
+export const metadata: Metadata = {
+    title: "Time Travel Television",
+    description: "Catch glimpses of the past through the television screen.",
+};
 
 export default function Layout({
     children,

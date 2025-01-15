@@ -8,6 +8,7 @@ interface StatusIconProps {
     videoId: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let player: any;
 
 export default function StatusIcon({ videoId }: StatusIconProps) {
@@ -21,7 +22,7 @@ export default function StatusIcon({ videoId }: StatusIconProps) {
         }
         player.cueVideoById(videoId); // workaround for issue where onError isn't thrown when video is unplayable
     }
-    const onPlayerError: YouTubeProps['onError'] = (event) => {
+    const onPlayerError: YouTubeProps['onError'] = () => {
         setIsReady(true);
         setIsPlayable(false);
     };

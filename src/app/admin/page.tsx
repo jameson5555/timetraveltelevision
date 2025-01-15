@@ -1,6 +1,6 @@
 import globalConfig from '@/app/app.config';
 import DecadesList from '@/app/components/admin/decades-list';
-import { getVideosByDecade } from '@/app/api/mysql/videos/route';
+import { getVideosByDecade } from '@/app/api/mysql/videos';
 import { DecadeListItem, Video } from '@/app/lib/definitions';
 
 const decades = globalConfig.decades;
@@ -9,6 +9,7 @@ const fetchDecadesData = async (): Promise<DecadeListItem[]> => {
     const decadesData: DecadeListItem[] = [];
     for (const decade of decades) {
         const result = await getVideosByDecade(decade);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const videos: Video[] = Array.isArray(result) ? result.map((item: any) => ({
             decade: item.decade,
             description: item.description,

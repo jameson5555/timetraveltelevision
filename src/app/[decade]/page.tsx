@@ -2,7 +2,7 @@ import Header from '@/app/components/header';
 import Menu from '@/app/components/menu';
 import Footer from '@/app/components/footer';
 import Tv from '@/app/components/tv';
-import { getVideosByDecade } from '@/app/api/mysql/videos/route';
+import { getVideosByDecade } from '@/app/api/mysql/videos';
 
 export default async function Page(props: { params: Promise<{ decade: string }> }) {
     const params = await props.params;

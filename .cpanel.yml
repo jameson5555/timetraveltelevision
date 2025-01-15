@@ -1,0 +1,19 @@
+--- 
+
+deployment:
+
+  tasks:
+
+  - export DEPLOYPATH=/home/ttt/public_html
+
+  - cd /path/to/your/nextjs/project
+
+  - npm install 
+
+  - npm run build
+
+  - cp -r .next/* $DEPLOYPATH
+
+  - cp server.js $DEPLOYPATH
+
+  - chmod +x $DEPLOYPATH/server.js

@@ -1,5 +1,5 @@
 .header {
-    h1 {
+    .h1 {
         white-space: nowrap;
         font-size: clamp(24px, 4vmin, 46px);
         text-align: center;
@@ -8,10 +8,10 @@
         z-index: 1;
         position: relative;
         margin-bottom: 0;
-        a,
-        a:hover,
-        a:visited,
-        a:active {
+        .link,
+        .link:hover,
+        .link:visited,
+        .link:active {
             color: var(--blue-violet);
         }
     }

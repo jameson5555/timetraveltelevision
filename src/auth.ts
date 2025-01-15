@@ -6,7 +6,7 @@ import mysql from 'mysql2/promise';
 import { GetDBSettings } from '@/shared/common';
 import type { User } from '@/app/lib/definitions';
 
-let connectionParams = GetDBSettings();
+const connectionParams = GetDBSettings();
 
 async function getUser(name: string): Promise<User | undefined> {
     try {

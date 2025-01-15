@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import mysql from 'mysql2/promise';
 import { GetDBSettings } from '@/shared/common';
 
-let connectionParams = GetDBSettings();
+const connectionParams = GetDBSettings();
 
 export async function DELETE(req: Request){
     const body = await req.json();
