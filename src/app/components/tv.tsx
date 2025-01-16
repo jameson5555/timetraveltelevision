@@ -46,7 +46,7 @@ export default function Tv({
             currentVideoIndex = 0;
         }
         player.loadVideoById(videos[currentVideoIndex].video_id);
-        player.mute(); // for testing
+        //player.mute(); // for testing
     }
 
     const onPlayerReady: YouTubeProps['onReady'] = (event) => {
@@ -55,7 +55,7 @@ export default function Tv({
         if (player?.playerInfo?.videoData?.isPlayable) {
             setIsStatic(false);
             player.playVideo();
-            player.mute(); // for testing
+            //player.mute(); // for testing
         }
     }
 

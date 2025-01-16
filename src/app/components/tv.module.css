@@ -43,7 +43,6 @@
     margin: 0 auto;
     position: relative;
     animation: spinZoom 3s ease-out;
-    /* media query for medium and up */
     @media (min-width: 768px) {
         width: 82vmin;
     }
@@ -86,58 +85,100 @@
         /* background: rgba(900, 100, 100, 0.5); */
     }
     .decade-50s {
-        padding: 9vmin 13vmin 19vmin 12vmin;
+        padding: 8vmin 12vmin 19vmin 11vmin;
         .dial {
             position: absolute;
-            top: 59vmin;
-            left: 29.5vmin;
-            width: 30.5vmin;
-            height: 10.5vmin;
             z-index: 2;
+            top: 61.5vmin;
+            left: 30.5vmin;
+            width: 33vmin;
+            height: 11vmin;
+            @media (min-width: 768px) {
+                top: 54.5vmin;
+                left: 26.5vmin;
+                width: 30vmin;
+                height: 11vmin;
+            }
         }
     }
     .decade-60s {
-        padding: 9vmin 14.5vmin 27vmin 14vmin;
+        padding: 8.5vmin 14.5vmin 24vmin 14vmin;
+        @media (min-width: 768px) {
+            padding: 8vmin 13.5vmin 24vmin 13vmin;
+        }
         .dial {
             position: absolute;
-            top: 62vmin;
-            left: 33vmin;
-            width: 21vmin;
-            height: 11vmin;
             z-index: 2;
+            top: 65vmin;
+            left: 34vmin;
+            width: 23vmin;
+            height: 11.5vmin;
+            @media (min-width: 768px) {
+                top: 57.5vmin;
+                left: 30vmin;
+                width: 21vmin;
+                height: 11vmin;
+            }
         }
     }
     .decade-70s {
-        padding: 7.25vmin 19vmin 10vmin 11vmin;
+        padding: 7vmin 19.5vmin 10vmin 11vmin;
+        @media (min-width: 768px) {
+            padding: 6.5vmin 17.5vmin 10vmin 10vmin;
+        }
         .dial {
             position: absolute;
+            z-index: 2;
             right: 6vmin;
             top: 6.5vmin;
-            width: 9vmin;
+            width: 10vmin;
             height: 13.5vmin;
-            z-index: 2;
+            @media (min-width: 768px) {
+                right: 5vmin;
+                top: 5.5vmin;
+                width: 10vmin;
+                height: 13vmin;
+            }
         }
     }
     .decade-80s {
-        padding: 6vmin 23vmin 15vmin 8vmin;
+        padding: 8.2vmin 26.7vmin 15vmin 10.5vmin;
+        @media (min-width: 768px) {
+            padding: 7.4vmin 24vmin 11vmin 9.8vmin;
+        }
         .dial {
             position: absolute;
+            z-index: 2;
             right: 5vmin;
             top: 4.5vmin;
-            width: 15vmin;
-            height: 30.5vmin;
-            z-index: 2;
+            width: 16vmin;
+            height: 32vmin;
+            @media (min-width: 768px) {
+                right: 4.5vmin;
+                top: 4.5vmin;
+                width: 14vmin;
+                height: 28vmin;
+            }
         }
     }
     .decade-90s {
-        padding: 9vmin 9vmin 12vmin 9vmin;
+        padding: 9vmin 8.8vmin 12vmin 9vmin;
+        @media (min-width: 768px) {
+            padding: 8vmin 7.8vmin 12vmin 8vmin;
+        }
         .dial {
             position: absolute;
-            top: 61.5vmin;
+            z-index: 2;
+            top: 64.5vmin;
             left: 6.5vmin;
             width: 75vmin;
             height: 6vmin;
-            z-index: 2;
+            @media (min-width: 768px) {
+                top: 57.5vmin;
+                left: 6.5vmin;
+                width: 66vmin;
+                height: 6vmin;
+            }
         }
     }
 }

@@ -4,6 +4,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 The live site can be found here: https://timetraveltelevision.com/
 
+## Screenshots
+### Decade Page
+
+### Admin Page
+
 ## Getting Started
 
 First, run the development server:
@@ -16,12 +21,8 @@ npm run dev # command to launch locally
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-## Local data
-A local copy of the MySQL database is stored at /localhost.sql. Launch MySQLWorkbench to import it (be sure MySQL is running in System Preferences)
-
-Two tables are used:
-* ttt_videos.video_ids
-* ttt_videos.users
+## Data
+Data storage is managed through a [Neon](https://console.neon.tech/) Postgres table, hosted on [Vercel](https://vercel.com/). This is used for both local and production environments.
 
 ## Icons
 To add icons to a page, browse here and copy/paste the code after clicking the desired icon: https://react-icons.github.io/react-icons/
