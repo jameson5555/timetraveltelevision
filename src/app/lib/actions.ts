@@ -12,7 +12,7 @@ export async function authenticate(
         await signIn('credentials', formData);
         redirect('/admin');
     } catch (error) {
-        console.log('catch error', error);
+        console.error('Error signing in: ', error);
         if (!(error instanceof AuthError)) {
             redirect('/admin'); // workaround for NEXT_REDIRECT error resulting from using a try/catch
         }

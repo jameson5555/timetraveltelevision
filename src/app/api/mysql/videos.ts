@@ -1,6 +1,8 @@
 import { sql } from '@vercel/postgres';
 import type { DecadeListItem } from '@/app/lib/definitions';
 
+export const dynamic = 'force-dynamic';
+
 export async function getVideosByDecade(decade: string) {
     try {
         const videos = await sql<DecadeListItem>`SELECT * FROM videos WHERE decade=${decade}`;
