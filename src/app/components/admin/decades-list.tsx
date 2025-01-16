@@ -22,7 +22,7 @@ export default function DecadesList({
             return;
         }
         const decade = row.querySelector<HTMLInputElement>('[data-field="decade"]')?.value;
-        const videoId = row.querySelector<HTMLInputElement>('[data-field="id"]')?.value;
+        const videoId = row.querySelector<HTMLInputElement>('[data-field="video_id"]')?.value;
         const description = row.querySelector<HTMLInputElement>('[data-field="description"]')?.value;
         
         try {
@@ -57,26 +57,26 @@ export default function DecadesList({
                             </tr>
                             <tr>
                                 <th className={styles.status}>Status</th>
-                                <th>ID</th>
+                                <th>Video ID</th>
                                 <th>Description</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody key={`${decadeItem.decade}-body`}>
                             {decadeItem.videos.map((video, index) => (
-                                <React.Fragment key={video.id}>
-                                    <tr key={video.id}>
-                                        <td className={styles.status}><StatusIcon videoId={video.id}/></td>
-                                        <td>{video.id}</td>
+                                <React.Fragment key={video.video_id}>
+                                    <tr key={video.video_id}>
+                                        <td className={styles.status}><StatusIcon videoId={video.video_id}/></td>
+                                        <td>{video.video_id}</td>
                                         <td>{video.description}</td>
-                                        <td className={styles.delete}><DeleteButton videoId={video.id}/></td>
+                                        <td className={styles.delete}><DeleteButton videoId={video.video_id}/></td>
                                     </tr>
                                     {index === decadeItem.videos.length - 1 && (
                                         <tr>
                                             <td className={styles.status}>
                                                 <input type="hidden" value={decadeItem.decade} data-field="decade"/>
                                             </td>
-                                            <td><input type="text" className="form-control" placeholder="enter ID" data-field="id"/></td>
+                                            <td><input type="text" className="form-control" placeholder="enter ID" data-field="video_id"/></td>
                                             <td><input type="text" className="form-control" placeholder="enter description" data-field="description"/></td>
                                             <td className={styles.delete}>
                                                 <button className="bg-transparent text-white border-0" onClick={handleAdd}>

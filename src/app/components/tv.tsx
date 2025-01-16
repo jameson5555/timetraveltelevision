@@ -45,7 +45,7 @@ export default function Tv({
         if (currentVideoIndex >= videos.length) {
             currentVideoIndex = 0;
         }
-        player.loadVideoById(videos[currentVideoIndex].id);
+        player.loadVideoById(videos[currentVideoIndex].video_id);
         player.mute(); // for testing
     }
 
@@ -94,7 +94,7 @@ export default function Tv({
                         onClick={() => setFullScreen()}
                     >
                         <YouTube
-                            videoId={videos[currentVideoIndex]?.id}
+                            videoId={videos[currentVideoIndex]?.video_id}
                             opts={opts}
                             onReady={onPlayerReady}
                             onPlay={onPlayerPlay}

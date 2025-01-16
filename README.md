@@ -9,8 +9,8 @@ The live site can be found here: https://timetraveltelevision.com/
 First, run the development server:
 
 ```bash
-nvm use 18.18.0; npm run dev
-mysql -u root -p # launch mysql in terminal (for importing .sql file from prod db)
+nvm use 18.18.0 # recommended minimum npm version
+npm run dev # command to launch locally
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

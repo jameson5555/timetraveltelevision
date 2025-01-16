@@ -1,7 +1,7 @@
 export type Video = {
     decade: string;
     description: string;
-    id: string;
+    video_id: string;
 }
 
 export type DecadeListItem = {

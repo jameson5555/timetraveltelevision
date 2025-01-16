@@ -13,7 +13,7 @@ const fetchDecadesData = async (): Promise<DecadeListItem[]> => {
         const videos: Video[] = Array.isArray(result) ? result.map((item: any) => ({
             decade: item.decade,
             description: item.description,
-            id: item.id
+            video_id: item.video_id
         })) : [];
         decadesData.push({
             decade,

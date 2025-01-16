@@ -2,31 +2,13 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
-import mysql from 'mysql2/promise';
-import { GetDBSettings } from '@/shared/common';
+import { sql } from '@vercel/postgres';
 import type { User } from '@/app/lib/definitions';
-
-const connectionParams = GetDBSettings();
 
 async function getUser(name: string): Promise<User | undefined> {
     try {
-        const connection = await mysql.createConnection(connectionParams);
-        const get_exp_query = 'SELECT * FROM ttt_videos.users WHERE name = "' + name + '"';
-        const [rows] = await connection.execute<mysql.RowDataPacket[]>(get_exp_query);
-
-        connection.end();
-
-        const userRow = rows[0];
-        if (userRow) {
-            const user: User = {
-                id: userRow.id,
-                name: userRow.name,
-                password: userRow.password,
-            };
-
-            return user;
-        }
-        return undefined;
+        const user = await sql<User>`SELECT * FROM users WHERE name=${name}`;
+        return user.rows[0];
     } catch (error) {
         console.error('Failed to fetch user:', error);
         throw new Error('Failed to fetch user.');

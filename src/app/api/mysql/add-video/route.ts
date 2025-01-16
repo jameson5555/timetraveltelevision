@@ -1,23 +1,19 @@
 import { NextResponse } from 'next/server';
-import mysql from 'mysql2/promise';
-import { GetDBSettings } from '@/shared/common';
-
-const connectionParams = GetDBSettings();
+import { sql } from '@vercel/postgres';
 
 export async function POST(req: Request){
     const body = await req.json();
     const { decade, videoId, description } = body;
 
     try {
-        const connection = await mysql.createConnection(connectionParams);
-        const insert_query = `INSERT INTO ttt_videos.video_ids (decade, id, description) VALUES (?, ?, ?)`;
-        const [results] = await connection.execute(insert_query, [decade, videoId, description]);
-
-        connection.end();
-
+        const result = await sql`
+            INSERT INTO videos (decade, video_id, description)
+            VALUES (${decade}, ${videoId}, ${description})
+        `;
+        const results = result.rows;
         return NextResponse.json({ success: true, results });
-    } catch (err) {
-        console.error('ERROR: API - ', (err as Error).message);
-        return NextResponse.json({ success: false, error: (err as Error).message });
+    } catch (error) {
+        console.error('ERROR: API - ', (error as Error).message);
+        return NextResponse.json({ success: false, error: (error as Error).message });
     }
 }
