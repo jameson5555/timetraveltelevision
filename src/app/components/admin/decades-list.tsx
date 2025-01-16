@@ -7,6 +7,7 @@ import StatusIcon from '@/app/components/admin/status-icon';
 import DeleteButton from '@/app/components/admin/delete-button';
 import styles from '@/app/components/admin/decades-list.module.css';
 import { FaPlus } from "react-icons/fa";
+import { connection } from 'next/server'
 
 export default function DecadesList({
     decades,
@@ -14,6 +15,12 @@ export default function DecadesList({
     decades: DecadeListItem[];
 }) {
     const router = useRouter();
+    React.useEffect(() => {
+        const connect = async () => {
+            await connection(); // prevent caching for this component
+        };
+        connect();
+    }, []);
 
     const handleAdd = async (event: React.MouseEvent<HTMLButtonElement>) => {
         const row = (event.target as HTMLElement).closest('tr');
