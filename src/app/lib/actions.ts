@@ -10,7 +10,6 @@ export async function authenticate(
 ) {
     try {
         await signIn('credentials', formData);
-        console.log('try signIn for ', formData);
         redirect('/admin');
     } catch (error) {
         console.log('catch error', error);
