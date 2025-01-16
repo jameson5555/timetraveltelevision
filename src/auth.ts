@@ -29,6 +29,7 @@ export const { auth, signIn } = NextAuth({
                     const user = await getUser(name);
                     if (!user) return null;
                     const passwordsMatch = password === user.password;
+                    console.log('user', user);
                     if (passwordsMatch) return user;
                 }
 
