@@ -2,11 +2,12 @@ import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function DELETE(req: Request){
     const body = await req.json();
     const { videoId } = body;
-console.log('videoId to delete', videoId);
+
     try {
         const result = await sql`
             DELETE FROM videos WHERE video_id=${videoId}

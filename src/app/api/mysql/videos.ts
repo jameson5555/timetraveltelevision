@@ -2,6 +2,7 @@ import { sql } from '@vercel/postgres';
 import type { DecadeListItem } from '@/app/lib/definitions';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function getVideosByDecade(decade: string) {
     try {
