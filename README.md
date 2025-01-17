@@ -1,6 +1,6 @@
 # Time Travel Television
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). Vintage TV shows and commercials are curated for each decade from the 50s to the 90s and then displayed and controlled via the YouTube Iframe API. 
 
 The live site can be found here: https://timetraveltelevision.com/
 
@@ -10,6 +10,9 @@ The live site can be found here: https://timetraveltelevision.com/
 
 ### Admin Page
 ![Admin Page](https://github.com/jameson5555/timetraveltelevision/blob/main/public/screenshots/admin-page.png?raw=true?raw=true)
+
+### Login Page
+![Login Page](https://github.com/jameson5555/timetraveltelevision/blob/main/public/screenshots/login-page.png?raw=true)
 
 ## Getting Started
 
