@@ -45,6 +45,7 @@ export default function Tv({
         if (currentVideoIndex >= videos.length) {
             currentVideoIndex = 0;
         }
+        console.log('on skipToNextVideo loadVideoById');
         player.loadVideoById(videos[currentVideoIndex].video_id);
         //player.mute(); // for testing
     }
@@ -68,7 +69,13 @@ export default function Tv({
 
     const setFullScreen = () => {
         if (player === undefined) return;
-        player.getIframe().requestFullscreen(); // todo: browser compatibility, animate, click to exit fullscreen
+
+        const state = player.getPlayerState();
+        if (state === 1) {
+            player.getIframe().requestFullscreen();
+        } else {
+            player.playVideo();
+        }
     }
 
     const opts: YouTubeProps['opts'] = {

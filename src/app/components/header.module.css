@@ -20,7 +20,7 @@
         /* mobile landscape mode */
         @media (max-height: 600px) and (min-width: 600px) {
             padding: 3vmin 1vmin;
-            font-size: clamp(14px, 4vmin, 46px);
+            font-size: clamp(12px, 4vmin, 46px);
         }
     }
 }
