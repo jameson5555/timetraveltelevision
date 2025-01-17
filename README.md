@@ -13,14 +13,14 @@ The live site can be found here: https://timetraveltelevision.com/
 
 ## Getting Started
 
-First, run the development server:
+Running the development server:
 
 ```bash
 nvm use 18.18.0 # recommended minimum npm version
 npm run dev # command to launch locally
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
 
 ## Data

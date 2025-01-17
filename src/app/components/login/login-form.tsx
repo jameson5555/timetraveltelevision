@@ -11,7 +11,7 @@ export default function LoginForm() {
     );
 
     return (
-        <form action={formAction} className="mx-auto" style={{ maxWidth: '320px' }}>
+        <form action={formAction} className="mx-auto card p-3" style={{ maxWidth: '440px' }}>
             <div>
                 <input
                     className="form-control"
@@ -33,7 +33,7 @@ export default function LoginForm() {
                     minLength={6}
                 />
             </div>
-            <Button className="mt-3 w-100 btn btn-tertiary" aria-disabled={isPending}>
+            <Button className="mt-3 w-100 btn btn-primary" aria-disabled={isPending}>
                 Log in
             </Button>
             <div
