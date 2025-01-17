@@ -1,9 +1,9 @@
-'use client';
-
-import styles from "@/app/page.module.css";
+import ContributeLink from '@/app/components/contribute-link';
 
 export default function Footer() {
     return (
-        <footer className={styles.footer}></footer>
+        <footer className="d-none position-absolute bottom-0 w-100 text-center p-3">
+            <ContributeLink />
+        </footer>
     );
 };
