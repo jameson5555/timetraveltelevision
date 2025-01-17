@@ -14,5 +14,12 @@
         .link:active {
             color: var(--blue-violet);
         }
+        @media (max-width: 768px) {
+            padding: 5vmin 1vmin;
+        }
+        /* mobile landscape mode */
+        @media (max-height: 600px) and (min-width: 600px) {
+            padding: 3vmin 1vmin;
+        }
     }
 }
