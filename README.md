@@ -9,7 +9,7 @@ The live site can be found here: https://timetraveltelevision.com/
 ![Decade Page](https://github.com/jameson5555/timetraveltelevision/blob/main/public/screenshots/decades-page.png?raw=true?raw=true)
 
 ### Admin Page
-![Admin Page](https://github.com/jameson5555/timetraveltelevision/blob/main/public/screenshots/decades-page.png?raw=true?raw=true)
+![Admin Page](https://github.com/jameson5555/timetraveltelevision/blob/main/public/screenshots/admin-page.png?raw=true?raw=true)
 
 ## Getting Started
 
