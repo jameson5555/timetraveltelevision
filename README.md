@@ -6,8 +6,10 @@ The live site can be found here: https://timetraveltelevision.com/
 
 ## Screenshots
 ### Decade Page
+![Alt text](/screenshots/decades-page.png?raw=true)
 
 ### Admin Page
+![Alt text](/screenshots/admin-page.png?raw=true)
 
 ## Getting Started
 
