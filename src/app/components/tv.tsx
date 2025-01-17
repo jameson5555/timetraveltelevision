@@ -9,6 +9,7 @@ import { useState } from 'react'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let player: any;
+let currentVideoIndex = 0;
 const aspectRatioClasses = {
     '50s': 'ratio ratio-4x3',
     '60s': 'ratio ratio-4x3',
@@ -36,18 +37,21 @@ export default function Tv({
 }) {
     videos.sort(() => Math.random() - 0.5);
 
-    let currentVideoIndex = 0;
     const [isStatic, setIsStatic] = useState(true);
 
     const skipToNextVideo = () => {
-        setIsStatic(true);
+        const iframe = player.getIframe();
+        const screen = iframe.closest(`.${styles.screen}`);
+        screen.classList.add(`${styles.showStatic}`); // can't use useState here without re-rendering the whole component
         currentVideoIndex++;
         if (currentVideoIndex >= videos.length) {
             currentVideoIndex = 0;
         }
-        console.log('on skipToNextVideo loadVideoById');
         player.loadVideoById(videos[currentVideoIndex].video_id);
         //player.mute(); // for testing
+        setTimeout(() => {
+            screen.classList.remove(`${styles.showStatic}`);
+        }, 1000);
     }
 
     const onPlayerReady: YouTubeProps['onReady'] = (event) => {
