@@ -14,7 +14,7 @@ const orbitron = Orbitron({
 
 export const metadata: Metadata = {
     title: "Time Travel Television",
-    description: "Catch glimpses of the past through the television screen.",
+    description: "Take a trip back to the 20th century and catch glimpses of bygone days through the TV screen.",
 };
 
 export default function RootLayout({
