@@ -8,7 +8,7 @@ export default function Home() {
             <Header />
             <Menu />
             <section className="home-container">
-                <h2 className="home-message">Choose a Decade</h2>
+                <h2 className="home-message h1">Choose a Decade</h2>
             </section>
             <Footer />
         </main>
