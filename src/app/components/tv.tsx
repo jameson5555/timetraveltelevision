@@ -6,6 +6,7 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 import Image from 'next/image';
 import clsx from 'clsx';
 import { useState } from 'react'
+import { notFound } from 'next/navigation';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let player: any;
@@ -37,6 +38,11 @@ export default function Tv({
 }) {
     videos.sort(() => Math.random() - 0.5);
 
+    // check if video_id does not exist in videos[currentVideoIndex]
+    if (!videos[currentVideoIndex]?.video_id) {
+        notFound();
+    }
+
     const [isStatic, setIsStatic] = useState(true);
 
     const skipToNextVideo = () => {
@@ -47,7 +53,7 @@ export default function Tv({
         if (currentVideoIndex >= videos.length) {
             currentVideoIndex = 0;
         }
-        player.loadVideoById(videos[currentVideoIndex].video_id);
+        player.loadVideoById(videos[currentVideoIndex]?.video_id);
         //player.mute(); // for testing
         setTimeout(() => {
             screen.classList.remove(`${styles.showStatic}`);
