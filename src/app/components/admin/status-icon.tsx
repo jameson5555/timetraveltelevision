@@ -18,7 +18,6 @@ export default function StatusIcon({ videoId }: StatusIconProps) {
             const response = await fetch(url);
             const data = await response.json();
             console.log('data:', data);
-
             setIsReady(true);
             return data?.items?.length > 0;
         } catch (error) {
