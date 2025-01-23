@@ -125,6 +125,7 @@ export default function Tv({
                             height={290}
                             className={styles.static}
                             alt=""
+                            priority
                         />
                     </div>
                     <Image
@@ -133,6 +134,7 @@ export default function Tv({
                         height={tvSetSizes[decade]?.height || 1446}
                         className={styles.set}
                         alt=""
+                        priority
                     />
                     <div className={styles.dial} onClick={() => skipToNextVideo()}></div>
                 </div>
