@@ -3,7 +3,8 @@ import { Orbitron } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/app/globals.css";
 import Starfield from 'react-starfield';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const orbitron = Orbitron({
     variable: "--font-orbitron",
@@ -40,6 +41,7 @@ export default function RootLayout({
                     <div className='spiral spiral7'></div>
                     <div className='spiral spiral8'></div>
                 </div>
+                <SpeedInsights />
                 <Analytics/>
             </body>
         </html>
