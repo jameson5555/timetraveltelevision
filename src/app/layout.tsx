@@ -3,9 +3,7 @@ import { Orbitron } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/app/globals.css";
 import Starfield from 'react-starfield';
-// import { FaMaximize } from "react-icons/fa6"; // insert icons like this
-// browse icons here: https://react-icons.github.io/react-icons/
-// todo: learn https://www.remotion.dev/
+import { Analytics } from "@vercel/analytics/react"
 
 const orbitron = Orbitron({
     variable: "--font-orbitron",
@@ -42,6 +40,7 @@ export default function RootLayout({
                     <div className='spiral spiral7'></div>
                     <div className='spiral spiral8'></div>
                 </div>
+                <Analytics/>
             </body>
         </html>
     );

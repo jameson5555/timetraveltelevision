@@ -195,3 +195,10 @@ iframe {
     color: var(--deep-pink);
     text-shadow: 0.3vmin 0.3vmin 0 var(--blue-violet), 0.6vmin 0.6vmin 0 var(--dark-blue);
 }
+
+.not-found {
+    img {
+        height: auto;
+        max-width: 92vmin;
+    }
+}

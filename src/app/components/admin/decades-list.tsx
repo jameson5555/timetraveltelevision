@@ -60,7 +60,7 @@ export default function DecadesList({
                     <React.Fragment key={decadeItem.decade}>
                         <thead>
                             <tr>
-                                <th className="bg-transparent pt-4" colSpan={4}>{decadeItem.decade} Videos</th>
+                                <th className="bg-transparent pt-4" colSpan={4}>{decadeItem.decade} Videos ({decadeItem.videos.length})</th>
                             </tr>
                             <tr>
                                 <th className={styles.status}>Status</th>
