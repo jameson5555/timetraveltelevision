@@ -40,14 +40,6 @@ export default function ContributeLink() {
                         <img alt="" style={{ border: 'none' }} src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
                     </form>
                 </Modal.Body>
-                {/* <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer> */}
             </Modal>
         </>
     );

@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
-
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+import { revalidatePath } from 'next/cache';
 
 export async function POST(req: Request){
     const body = await req.json();
@@ -14,6 +12,7 @@ export async function POST(req: Request){
             VALUES (${decade}, ${videoId}, ${description})
         `;
         const results = result.rows;
+        revalidatePath('/admin');
         return NextResponse.json({ success: true, results });
     } catch (error) {
         console.error('ERROR: API - ', (error as Error).message);

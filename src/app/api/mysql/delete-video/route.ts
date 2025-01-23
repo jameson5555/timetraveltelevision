@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
-
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+import { revalidatePath } from 'next/cache';
 
 export async function DELETE(req: Request){
     const body = await req.json();
@@ -13,7 +11,7 @@ export async function DELETE(req: Request){
             DELETE FROM videos WHERE video_id=${videoId}
         `;
         const results = result.rows;
-        console.log('results', results);
+        revalidatePath('/admin');
         return NextResponse.json({ success: true, results });
     } catch (error) {
         console.error('ERROR: API - ', (error as Error).message);
