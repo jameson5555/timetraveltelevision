@@ -98,7 +98,9 @@ a {
     color: var(--link-color);
     text-decoration: none;
     transition: color 0.2s ease-out;
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
         color: var(--orange-lt);
     }
 }

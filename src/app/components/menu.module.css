@@ -50,6 +50,10 @@
                 padding: 2vmin;
                 font-size: 1rem;
                 transform: rotateY(360deg);
+                &:active,
+                &:focus {
+                    color: var(--dark-orange);
+                }
             }
             &:hover {
                 .link {
