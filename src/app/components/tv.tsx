@@ -90,7 +90,7 @@ export default function Tv({
         const state = player.getPlayerState();
         if (state === 1) {
             // if mobile, use native fullscreen, otherwise zoom tv
-            if (window.innerWidth < 768) {
+            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
                 player.getIframe().requestFullscreen();
             } else {
                 const iframe = player.getIframe();
