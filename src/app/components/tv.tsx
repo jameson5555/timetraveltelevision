@@ -89,37 +89,40 @@ export default function Tv({
 
         const state = player.getPlayerState();
         if (state === 1) {
-            //player.getIframe().requestFullscreen();
+            // if mobile, use native fullscreen, otherwise zoom tv
+            if (window.innerWidth < 768) {
+                player.getIframe().requestFullscreen();
+            } else {
+                const iframe = player.getIframe();
+                const tv = iframe.closest(`.${styles.tv}`);
+                const tvContainer = tv.closest(`.${styles.tvcontainer}`);
 
-            const iframe = player.getIframe();
-            const tv = iframe.closest(`.${styles.tv}`);
-            const tvContainer = tv.closest(`.${styles.tvcontainer}`);
-
-            // if tv is already zoomed, unzoom it
-            if (tvContainer.classList.contains(`${styles.zoomed}`)) {
-                tv.style.width = '';
-                setTimeout(() => {
-                    tvContainer.classList.remove(`${styles.zoomed}`);
-                }, 250);
-                return;
-            }
-
-            // figure out how large the tv can zoom before triggering scrollbars
-            const viewportHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-            let tvWidth = 50;
-            while (tv.scrollHeight < viewportHeight) {
-                tvWidth++;
-                tv.style.width = `${tvWidth}vmin`;
-                if (tv.scrollHeight >= viewportHeight || tv.scrollWidth >= window.innerWidth) {
-                    tvWidth = tvWidth - 1;
+                // if tv is already zoomed, unzoom it
+                if (tvContainer.classList.contains(`${styles.zoomed}`)) {
                     tv.style.width = '';
-                    break;
+                    setTimeout(() => {
+                        tvContainer.classList.remove(`${styles.zoomed}`);
+                    }, 250);
+                    return;
                 }
+
+                // figure out how large the tv can zoom before triggering scrollbars
+                const viewportHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+                let tvWidth = 50;
+                while (tv.scrollHeight < viewportHeight) {
+                    tvWidth++;
+                    tv.style.width = `${tvWidth}vmin`;
+                    if (tv.scrollHeight >= viewportHeight || tv.scrollWidth >= window.innerWidth) {
+                        tvWidth = tvWidth - 1;
+                        tv.style.width = '';
+                        break;
+                    }
+                }
+                setTimeout(() => {
+                    tvContainer.classList.add(`${styles.zoomed}`);
+                    tv.style.width = `${tvWidth}vmin`;
+                });
             }
-            setTimeout(() => {
-                tvContainer.classList.add(`${styles.zoomed}`);
-                tv.style.width = `${tvWidth}vmin`;
-            });
         } else {
             player.playVideo();
         }
