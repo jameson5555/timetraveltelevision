@@ -9,10 +9,10 @@ import { useState } from 'react'
 import { notFound } from 'next/navigation';
 
 // icons used as svgs in css for cursors
-import { MdOutlineZoomOutMap } from "react-icons/md";
-import { MdOutlineZoomInMap } from "react-icons/md";
-import { MdSkipNext } from "react-icons/md";
-import { MdSkipPrevious } from "react-icons/md";
+// import { MdOutlineZoomOutMap } from "react-icons/md";
+// import { MdOutlineZoomInMap } from "react-icons/md";
+// import { MdSkipNext } from "react-icons/md";
+// import { MdSkipPrevious } from "react-icons/md";
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
