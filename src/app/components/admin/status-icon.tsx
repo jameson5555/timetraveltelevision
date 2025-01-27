@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FaCircle } from "react-icons/fa";
 
 interface StatusIconProps {
@@ -17,9 +17,11 @@ export default function StatusIcon({ videoId }: StatusIconProps) {
             const url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=status`;
             const response = await fetch(url);
             const data = await response.json();
-            console.log('data:', data);
+            const hasVideo = data?.items?.length > 0;
+            const isEmbeddable = hasVideo && data.items[0].status.embeddable;
+            const isPublic = hasVideo && data.items[0].status.privacyStatus !== 'private';
             setIsReady(true);
-            return data?.items?.length > 0;
+            return isEmbeddable && isPublic;
         } catch (error) {
             console.error('Error checking video playability:', error);
             setIsReady(true);
@@ -27,7 +29,9 @@ export default function StatusIcon({ videoId }: StatusIconProps) {
         }
     }
 
-    isVideoPlayable(videoId).then(playable => setIsPlayable(playable));
+    useEffect(() => {
+        isVideoPlayable(videoId).then(playable => setIsPlayable(playable));
+    }, [videoId]);
 
     return (
         <>
@@ -35,8 +39,7 @@ export default function StatusIcon({ videoId }: StatusIconProps) {
                 isPlayable ? (
                     <span className="text-success d-flex justify-content-center"><FaCircle /></span>
                 ) : (
-                    // <span className="text-danger d-flex justify-content-center"><FaCircle /></span>
-                    <span className="text-success d-flex justify-content-center"><FaCircle /></span>
+                    <span className="text-danger d-flex justify-content-center"><FaCircle /></span>
                 )
             ) : (
                 <span className="spinner d-block mx-auto"></span>
