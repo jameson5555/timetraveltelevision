@@ -13,11 +13,11 @@ export default function Menu() {
 
     return (
         <nav className={styles.menu}>
-            <ul>
+            <ul className={styles.list}>
                 {decades.map((decade) => (
                     <li
                         key={decade}
-                        className={clsx({
+                        className={clsx(styles.listitem, {
                             [styles.active]: pathname === '/' + decade,
                         })}
                     >
