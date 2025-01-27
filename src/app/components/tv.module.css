@@ -3,10 +3,12 @@
         transform: scale(0) rotate(0deg);
     }
     85% {
-        transform: scale(0.85) rotate(1800deg); /* 5 rotations */
+        /*transform: scale(0.85) rotate(1800deg); /* 5 rotations */
+        transform: scale(0.85) rotate(1440deg); /* 4 rotations */
+        transform: scale(0.85) rotate(1080deg); /* 3 rotations */
     }
     100% {
-        transform: scale(1) rotate(1800deg);
+        transform: scale(1) rotate(1080deg);
     }
 }
 
@@ -15,12 +17,44 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 3;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
+        transition: opacity 0.25s ease-out;
+    }
+    &.zoomed {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        &::before {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .tv {
+            transition: width 0.25s ease-out;
+            .screen {
+                cursor: url('data:image/svg+xml;utf8,<svg stroke="%23ff8c00" fill="%23ff8c00" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M9 9V3H7v2.59L3.91 2.5 2.5 3.91 5.59 7H3v2h6zm12 0V7h-2.59l3.09-3.09-1.41-1.41L17 5.59V3h-2v6h6zM3 15v2h2.59L2.5 20.09l1.41 1.41L7 18.41V21h2v-6H3zm12 0v6h2v-2.59l3.09 3.09 1.41-1.41L18.41 17H21v-2h-6z"></path></svg>'), auto;
+            }
+        }
+    }
 }
 .tv {
     width: 92vmin;
     margin: 0 auto;
     position: relative;
     animation: spinZoom 3s ease-out;
+    z-index: 2;
+    overflow: hidden;
     @media (min-width: 768px) {
         width: 82vmin;
     }
@@ -37,7 +71,7 @@
     .screen {
         overflow: hidden;
         background: black;
-        cursor: url('data:image/svg+xml;utf8,<svg stroke="black" fill="%23ff8c00" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M200 32L56 32C42.7 32 32 42.7 32 56l0 144c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l40-40 79 79-79 79L73 295c-6.9-6.9-17.2-8.9-26.2-5.2S32 302.3 32 312l0 144c0 13.3 10.7 24 24 24l144 0c9.7 0 18.5-5.8 22.2-14.8s1.7-19.3-5.2-26.2l-40-40 79-79 79 79-40 40c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8l144 0c13.3 0 24-10.7 24-24l0-144c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2l-40 40-79-79 79-79 40 40c6.9 6.9 17.2 8.9 26.2 5.2s14.8-12.5 14.8-22.2l0-144c0-13.3-10.7-24-24-24L312 32c-9.7 0-18.5 5.8-22.2 14.8s-1.7 19.3 5.2 26.2l40 40-79 79-79-79 40-40c6.9-6.9 8.9-17.2 5.2-26.2S209.7 32 200 32z"></path></svg>'), auto;
+        cursor: url('data:image/svg+xml;utf8,<svg stroke="%23ff8c00" fill="%23ff8c00" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="m15 3 2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg>'), auto;
         > .video,
         > .static {
             pointer-events: none;
@@ -56,107 +90,65 @@
             bottom: 0;
             pointer-events: none;
             opacity: 0;
-            transition: opacity 2s ease-out;
+            transition: opacity 5.5s ease-out;
         }
     }
     .dial {
-        cursor: url('data:image/svg+xml;utf8,<svg stroke="%23ff8c00" fill="none" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M6 17L14 12L6 7V17Z" fill="%23ff8c00"></path><path d="M18 7H15V12V17H18V7Z" fill="%23ff8c00"></path></svg>'), auto;
+        cursor: url('data:image/svg+xml;utf8,<svg stroke="%23ff8c00" fill="%23ff8c00" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="m6 18 8.5-6L6 6v12zM16 6v12h2V6h-2z"></path></svg>'), auto;
     }
     .decade-50s {
-        padding: 8vmin 12vmin 19vmin 11vmin;
+        padding: 10.5% 15.5% 24% 14.5%;
         .dial {
             position: absolute;
             z-index: 2;
-            top: 61.5vmin;
-            left: 30.5vmin;
-            width: 33vmin;
-            height: 11vmin;
-            @media (min-width: 768px) {
-                top: 54.5vmin;
-                left: 26.5vmin;
-                width: 30vmin;
-                height: 11vmin;
-            }
+            top: 77%;
+            left: 33%;
+            width: 36%;
+            height: 14%;
         }
     }
     .decade-60s {
-        padding: 8.5vmin 14.5vmin 24vmin 14vmin;
-        @media (min-width: 768px) {
-            padding: 8vmin 13.5vmin 24vmin 13vmin;
-        }
+        padding: 10.4% 17.2% 28% 16.5%;
         .dial {
             position: absolute;
             z-index: 2;
-            top: 65vmin;
-            left: 34vmin;
-            width: 23vmin;
-            height: 11.5vmin;
-            @media (min-width: 768px) {
-                top: 57.5vmin;
-                left: 30vmin;
-                width: 21vmin;
-                height: 11vmin;
-            }
+            top: 84%;
+            left: 37%;
+            width: 25%;
+            height: 15%;
         }
     }
     .decade-70s {
-        padding: 7vmin 19.5vmin 10vmin 11vmin;
-        @media (min-width: 768px) {
-            padding: 6.5vmin 17.5vmin 10vmin 10vmin;
-        }
+        padding: 8.3% 22.2% 11.5% 12.5%;
         .dial {
             position: absolute;
             z-index: 2;
-            right: 6vmin;
-            top: 6.5vmin;
-            width: 10vmin;
-            height: 13.5vmin;
-            @media (min-width: 768px) {
-                right: 5vmin;
-                top: 5.5vmin;
-                width: 10vmin;
-                height: 13vmin;
-            }
+            right: 6%;
+            top: 9%;
+            width: 12%;
+            height: 23%;
         }
     }
     .decade-80s {
-        padding: 8.2vmin 26.7vmin 15vmin 10.5vmin;
-        @media (min-width: 768px) {
-            padding: 7.4vmin 24vmin 11vmin 9.8vmin;
-        }
+        padding: 9.2% 29.5% 12.5% 12%;
         .dial {
             position: absolute;
             z-index: 2;
-            right: 5vmin;
-            top: 4.5vmin;
-            width: 16vmin;
-            height: 32vmin;
-            @media (min-width: 768px) {
-                right: 4.5vmin;
-                top: 4.5vmin;
-                width: 14vmin;
-                height: 28vmin;
-            }
+            right: 6%;
+            top: 9%;
+            width: 16%;
+            height: 52%;
         }
     }
     .decade-90s {
-        padding: 9vmin 8.8vmin 12vmin 9vmin;
-        @media (min-width: 768px) {
-            padding: 8vmin 7.8vmin 12vmin 8vmin;
-        }
+        padding: 10% 10.2% 15% 10.5%;
         .dial {
             position: absolute;
             z-index: 2;
-            top: 64.5vmin;
-            left: 6.5vmin;
-            width: 75vmin;
-            height: 6vmin;
-            @media (min-width: 768px) {
-                top: 57.5vmin;
-                left: 6.5vmin;
-                width: 66vmin;
-                height: 6vmin;
-            }
+            top: 86%;
+            left: 8%;
+            width: 84%;
+            height: 8%;
         }
     }
 }

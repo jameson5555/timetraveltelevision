@@ -8,6 +8,13 @@ import clsx from 'clsx';
 import { useState } from 'react'
 import { notFound } from 'next/navigation';
 
+// icons used as svgs in css for cursors
+import { MdOutlineZoomOutMap } from "react-icons/md";
+import { MdOutlineZoomInMap } from "react-icons/md";
+import { MdSkipNext } from "react-icons/md";
+import { MdSkipPrevious } from "react-icons/md";
+
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let player: any;
 let currentVideoIndex = 0;
@@ -82,7 +89,37 @@ export default function Tv({
 
         const state = player.getPlayerState();
         if (state === 1) {
-            player.getIframe().requestFullscreen();
+            //player.getIframe().requestFullscreen();
+
+            const iframe = player.getIframe();
+            const tv = iframe.closest(`.${styles.tv}`);
+            const tvContainer = tv.closest(`.${styles.tvcontainer}`);
+
+            // if tv is already zoomed, unzoom it
+            if (tvContainer.classList.contains(`${styles.zoomed}`)) {
+                tv.style.width = '';
+                setTimeout(() => {
+                    tvContainer.classList.remove(`${styles.zoomed}`);
+                }, 250);
+                return;
+            }
+
+            // figure out how large the tv can zoom before triggering scrollbars
+            const viewportHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+            let tvWidth = 50;
+            while (tv.scrollHeight < viewportHeight) {
+                tvWidth++;
+                tv.style.width = `${tvWidth}vmin`;
+                if (tv.scrollHeight >= viewportHeight || tv.scrollWidth >= window.innerWidth) {
+                    tvWidth = tvWidth - 1;
+                    tv.style.width = '';
+                    break;
+                }
+            }
+            setTimeout(() => {
+                tvContainer.classList.add(`${styles.zoomed}`);
+                tv.style.width = `${tvWidth}vmin`;
+            });
         } else {
             player.playVideo();
         }
