@@ -5,6 +5,7 @@ import "@/app/globals.css";
 import Starfield from 'react-starfield';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const orbitron = Orbitron({
     variable: "--font-orbitron",
@@ -43,6 +44,7 @@ export default function RootLayout({
                 </div>
                 <SpeedInsights />
                 <Analytics/>
+                <GoogleAnalytics gaId="G-397TEXEMXF" />
             </body>
         </html>
     );
