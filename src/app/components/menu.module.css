@@ -56,17 +56,17 @@
                 }
             }
             &:hover {
-                .link {
+                & .link {
                     transition: transform 0.5s ease-out;
                     transform: rotateY(0deg);
                 }
             }
         }
-        .active {
-            .link,
-            .link:hover,
-            .link:active,
-            .link:visited {
+        & .active {
+            & .link,
+            & .link:hover,
+            & .link:active,
+            & .link:visited {
                 transition: none;
                 transform: none;
                 color: var(--dark-orange);
@@ -87,10 +87,10 @@
         transform: translateY(-50%);
         border-top: none;
         border-left: 1px solid var(--link-color);
-        .list {
+        & .list {
             flex-direction: column;
             gap: 1rem;
-            .listitem {
+            & .listitem {
                 &::before {
                     left: auto;
                     right: 3rem;

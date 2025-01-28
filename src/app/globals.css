@@ -30,18 +30,23 @@
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
+
 @keyframes spinZoom {
     0% {
         color: var(--blue-violet);
         transform: scale(0) rotate(0deg);
     }
+
     85% {
-        transform: scale(0.85) rotate(1800deg); /* 5 rotations */
+        transform: scale(0.85) rotate(1800deg);
+        /* 5 rotations */
     }
+
     100% {
         color: var(--deep-pink);
         transform: scale(1) rotate(1800deg);
@@ -58,7 +63,7 @@ body {
     font: 16px/1 'Orbitron', arial, sans-serif;
     background: var(--background);
     color: var(--foreground);
-	overflow: hidden;
+    overflow: hidden;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -98,6 +103,7 @@ a {
     color: var(--link-color);
     text-decoration: none;
     transition: color 0.2s ease-out;
+
     &:hover,
     &:focus,
     &:active {
@@ -129,50 +135,50 @@ iframe {
     left: 50%;
     width: 200vmin;
     height: 200vmin;
-	margin: -100vmin 0 0 -100vmin;
+    margin: -100vmin 0 0 -100vmin;
     animation: spin 80s linear infinite;
     pointer-events: none;
     z-index: -1;
     mix-blend-mode: screen;
-	.spiral {
-		border-radius: 50%;
+    & .spiral {
+        border-radius: 50%;
         width: 200vmin;
         height: 200vmin;
-		box-shadow: -0vmin -20vmin 0vmin var(--spiral1), inset 0vmin 20vmin 0vmin var(--spiral2);
-		position: absolute;
-	}
-    .spiral1 {
+        box-shadow: -0vmin -20vmin 0vmin var(--spiral1), inset 0vmin 20vmin 0vmin var(--spiral2);
+        position: absolute;
+    }
+    & .spiral1 {
         top: -50%;
         transform: rotate(90deg);
     }
-    .spiral2 {
+    & .spiral2 {
         top: -35%;
         right: -35%;
         transform: rotate(135deg);
     }
-    .spiral3 {
+    & .spiral3 {
         right: -50%;
         transform: rotate(180deg);
     }
-    .spiral4 {
+    & .spiral4 {
         right: -35%;
         bottom: -35%;
         transform: rotate(225deg);
     }
-    .spiral5 {
+    & .spiral5 {
         bottom: -50%;
         transform: rotate(270deg);
     }
-    .spiral6 {
+    & .spiral6 {
         bottom: -35%;
         left: -35%;
         transform: rotate(315deg);
     }
-    .spiral7 {
+    & .spiral7 {
         left: -50%;
         transform: rotate(0deg);
     }
-    .spiral8 {
+    & .spiral8 {
         left: -35%;
         top: -35%;
         transform: rotate(45deg);
@@ -190,6 +196,7 @@ iframe {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .home-message {
     animation: spinZoom 3s ease-out;
     margin-bottom: 0;
@@ -199,7 +206,7 @@ iframe {
 }
 
 .not-found {
-    img {
+    & img {
         height: auto;
         max-width: 92vmin;
     }
