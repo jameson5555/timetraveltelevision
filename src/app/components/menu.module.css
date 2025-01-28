@@ -7,78 +7,7 @@
 .menu {
     text-align: center;
     border-top: 1px solid var(--link-color);
-    .list {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        @media (max-width: 768px) {
-            justify-content: space-around;
-        }
-        .listitem {
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-            &::before {
-                content: '';
-                border-left: 1px solid var(--link-color);
-                position: absolute;
-                top: 0;
-                bottom: 8vmin;
-                left: 47%;
-                margin-left: -1px;
-                height: 2.5vmin;
-            }
-
-            &:after {
-                content: '';
-                width: 5px;
-                height: 5px;
-                border-radius: 50%;
-                position: absolute;
-                top: 0;
-                left: 47%;
-                margin: -3px 0 0 -3px;
-                background: var(--link-color);
-            }
-
-            > .link {
-                display: block;
-                color: var(--link-color);
-                z-index: 1;
-                position: relative;
-                padding: 2vmin;
-                font-size: 1rem;
-                transform: rotateY(360deg);
-                &:active,
-                &:focus {
-                    color: var(--dark-orange);
-                }
-            }
-            &:hover {
-                .link {
-                    transition: transform 0.5s ease-out;
-                    transform: rotateY(0deg);
-                }
-            }
-        }
-        .active {
-            .link,
-            .link:hover,
-            .link:active,
-            .link:visited {
-                transition: none;
-                transform: none;
-                color: var(--dark-orange);
-            }
-            &::before {
-                border-color: var(--dark-orange);
-            }
-            &::after {
-                background-color: var(--dark-orange);
-            }
-        }
-    }
+    
     /* mobile landscape mode */
     @media (max-height: 600px) and (min-width: 600px) {
         position: absolute;
@@ -104,6 +33,79 @@
                     margin-top: 0;
                 }
             }
+        }
+    }
+}
+
+.list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 768px) {
+        justify-content: space-around;
+    }
+    .listitem {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        &::before {
+            content: '';
+            border-left: 1px solid var(--link-color);
+            position: absolute;
+            top: 0;
+            bottom: 8vmin;
+            left: 47%;
+            margin-left: -1px;
+            height: 2.5vmin;
+        }
+
+        &:after {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 47%;
+            margin: -3px 0 0 -3px;
+            background: var(--link-color);
+        }
+
+        > .link {
+            display: block;
+            color: var(--link-color);
+            z-index: 1;
+            position: relative;
+            padding: 2vmin;
+            font-size: 1rem;
+            transform: rotateY(360deg);
+            &:active,
+            &:focus {
+                color: var(--dark-orange);
+            }
+        }
+        &:hover {
+            .link {
+                transition: transform 0.5s ease-out;
+                transform: rotateY(0deg);
+            }
+        }
+    }
+    .active {
+        .link,
+        .link:hover,
+        .link:active,
+        .link:visited {
+            transition: none;
+            transform: none;
+            color: var(--dark-orange);
+        }
+        &::before {
+            border-color: var(--dark-orange);
+        }
+        &::after {
+            background-color: var(--dark-orange);
         }
     }
 }
