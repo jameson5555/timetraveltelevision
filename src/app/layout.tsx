@@ -6,6 +6,7 @@ import Starfield from 'react-starfield';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Image from 'next/image';
 
 const orbitron = Orbitron({
     variable: "--font-orbitron",
@@ -15,6 +16,7 @@ const orbitron = Orbitron({
 export const metadata: Metadata = {
     title: "Time Travel Television",
     description: "Take a trip back to the 20th century and catch glimpses of bygone days through the TV screen.",
+    keywords: ["television", "time travel", "20th century", "TV", "90s TV", "80s TV", "70s TV", "60s TV", "50s TV"],
 };
 
 export default function RootLayout({
@@ -25,6 +27,13 @@ export default function RootLayout({
     return (
         <html lang="en" data-bs-theme="dark">
             <body className={`${orbitron.className}`}>
+                <Image
+                    src={`/screenshots/decades-page.png`}
+                    alt="Time Travel Television - Take a trip back to the 20th century and catch glimpses of bygone days through the TV screen."
+                    width={640}
+                    height={510}
+                    className="visually-hidden"
+                />
                 {children}
                 <Starfield
                     starCount={2000}
