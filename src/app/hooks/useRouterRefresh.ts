@@ -15,7 +15,7 @@ export function useRouterRefresh() {
     const [isTriggered, setIsTriggered] = useState(false)
 
     const refresh = () => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             setResolve(() => resolve)
             startTransition(() => {
                 router.refresh()
