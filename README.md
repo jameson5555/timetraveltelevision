@@ -15,7 +15,6 @@ The live site can be found here: https://timetraveltelevision.com/
 ![Login Page](https://github.com/jameson5555/timetraveltelevision/blob/main/public/screenshots/login-page.png?raw=true)
 
 ## Getting Started
-
 Running the development server:
 
 ```bash
@@ -24,7 +23,6 @@ npm run dev # command to launch locally
 ```
 
 Then open [http://localhost:3000](http://localhost:3000) in your browser.
-
 
 ## Data
 Data storage is managed through a [Neon](https://console.neon.tech/) Postgres table, hosted on [Vercel](https://vercel.com/). This is used for both local and production environments.

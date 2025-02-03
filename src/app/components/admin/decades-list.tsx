@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation'
+import { useRouterRefresh } from '@/app/hooks/useRouterRefresh';
 import { DecadeListItem } from '@/app/lib/definitions';
 import StatusIcon from '@/app/components/admin/status-icon';
 import DeleteButton from '@/app/components/admin/delete-button';
@@ -15,7 +15,7 @@ export default function DecadesList({
 }: {
     decades: DecadeListItem[];
 }) {
-    const router = useRouter();
+    const refresh = useRouterRefresh();
     const [isLoading, setIsLoading] = useState(false);
     React.useEffect(() => {
         const connect = async () => {
@@ -51,14 +51,14 @@ export default function DecadesList({
             const data = await response.json();
 
             if (data.success) {
-                router.refresh()
+                refresh().then(() => {
+                    setIsLoading(false);
+                });
             } else {
                 console.error('Failed to add video:', data.error);
             }
         } catch (error) {
             console.error('Error adding video:', error);
-        } finally {
-            setIsLoading(false);
         }
     };
 
