@@ -26,12 +26,6 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" data-bs-theme="dark">
-            <head>
-                <script async
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6539140496743179"
-                    crossOrigin="anonymous">
-                </script>
-            </head>
             <body className={`${orbitron.className}`}>
                 <Image
                     src={`/screenshots/decades-page.png`}

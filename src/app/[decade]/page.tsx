@@ -11,11 +11,17 @@ export default async function Page(props: { params: Promise<{ decade: string }> 
     const videos = Array.isArray(result) ? result : [];
 
     return (
-        <main>
-            <Header />
-            <Menu />
-            <Tv decade={decade} videos={videos} />
-            <Footer />
-        </main>
+        <>
+            <main>
+                <Header />
+                <Menu />
+                <Tv decade={decade} videos={videos} />
+                <Footer />
+            </main>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6539140496743179"
+                crossOrigin="anonymous">
+            </script>
+        </>
     );
 }
